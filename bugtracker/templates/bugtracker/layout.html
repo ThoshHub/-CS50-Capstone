@@ -3,21 +3,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>{% block title %}Social Network{% endblock %}</title>
+        <title>{% block title %}Bug Tracker{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-		<link href="{% static 'network/styles.css' %}" rel="stylesheet">
-		{% comment %} <script src="{% static 'network/messages.js' %}"></script> {% endcomment %}
+		<link href="{% static 'bugtracker/styles.css' %}" rel="stylesheet">
+		{% comment %} <script src="{% static 'bugtracker/index.js' %}"></script> {% endcomment %}
     </head>
     <body>
 
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">Network</a>
+            <a class="navbar-brand" href="#">Bug Tracker</a>
           
             <div>
               <ul class="navbar-nav mr-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong>{{ user.username }}</strong></a>
+                        <a class="nav-link" href="#"><strong> Username Goes Here </strong></a>
                     </li>
                 {% endif %}
                 <li class="nav-item">
@@ -25,10 +25,10 @@
                 </li>
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'followpage' %}">Following</a>
+                        <a class="nav-link" href="{% url 'index' %}">Change This Link</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                        <a class="nav-link" href="{% url 'index' %}">Change This Link</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
