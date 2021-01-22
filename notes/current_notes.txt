@@ -1,3 +1,4 @@
 Progress:
 
-    Need to serve webpage to login
+    Need to create admin account (x1 at least)
+    Need to create layout.html page
