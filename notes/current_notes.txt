@@ -1,4 +1,9 @@
 Progress:
 
-    Need to create admin account (x1 at least)
-    Need to create layout.html page
+    /Need to create admin account (x1 at least)
+    /Need to create layout.html page
+
+    Need to create group for model
+    Need to extend user model to include group foreign key
+
+    Need to replace front-end with react
