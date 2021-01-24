@@ -2,13 +2,30 @@
 {% load static %}
 
 {% block body %}
-	<!-- <script src="{% static 'bugtracker/index.js' %}"></script> -->
+	<!-- <script src="{% static 'bugtracker/index_vanilla.js' %}"></script> -->
 	<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
 	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-	<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 	
 	<h2 id="index_header"><span style="color:black;">Welcome!</span></h2>
+	
+	<div id="app"></div>
+	<script type="text/babel">
 
+	class App extends React.Component {
+
+			render() {
+				return (
+					<div>
+						Hello!
+					</div>
+				);
+			}	
+		}
+
+		ReactDOM.render(<App />, document.querySelector('#app'));
+
+	</script>
 
 
 {% endblock %}
