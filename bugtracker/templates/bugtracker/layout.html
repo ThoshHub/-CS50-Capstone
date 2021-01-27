@@ -17,7 +17,7 @@
               <ul class="navbar-nav mr-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><strong> Username Goes Here </strong></a>
+                        <a class="nav-link" href="#"><strong>{{ user.username }}</strong></a>
                     </li>
                 {% endif %}
                 <li class="nav-item">
@@ -28,16 +28,16 @@
                         <a class="nav-link" href="{% url 'index' %}">Change This Link</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">Change This Link</a>
+                        <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
                         <!-- TODO CHANGE THIS -->
-                        <a class="nav-link" href="{% url 'index' %}">Log In</a>
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
                     </li>
                     <li class="nav-item">
                         <!-- TODO CHANGE THIS -->
-                        <a class="nav-link" href="{% url 'index' %}">Register</a>
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
                     </li>
                 {% endif %}
               </ul>
