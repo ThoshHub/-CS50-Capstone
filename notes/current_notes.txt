@@ -4,10 +4,11 @@ Progress:
     /Need to create layout.html page
 
     /Need to create group for model
+    /Need to register all models (admin.site.register) so they show up in the admin console
+        /For some reason this didn't work?   
+    /Also git is broken
     /Need to extend user model to include group foreign key
         For all foreign keys in models, get rid of nulls, blanks, and defaults
-    Need to register all models (admin.site.register) so they show up in the admin console
-        For some reason this didn't work?   
-    Also git is broken
+    /Need to change the title string (Self def)
 
     Need to replace front-end with react
