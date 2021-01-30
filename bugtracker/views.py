@@ -69,3 +69,6 @@ def register(request):
 		return HttpResponseRedirect(reverse("index"))
 	else:
 		return render(request, "bugtracker/register.html")
+
+def buglist(request):
+	return render(request, "bugtracker/buglist.html")
