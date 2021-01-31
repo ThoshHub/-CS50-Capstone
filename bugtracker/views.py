@@ -71,4 +71,8 @@ def register(request):
 		return render(request, "bugtracker/register.html")
 
 def buglist(request):
+	# Need to grab list of bugs that 
 	return render(request, "bugtracker/buglist.html")
+
+def createbug(request):
+	return render(request, "bugtracker/error.html")

@@ -2,23 +2,20 @@
 {% load static %}
 
 {% block body %}
-	<script type="text/babel" src="{% static 'bugtracker/buglist_react.js' %}"></script>
+	<!-- <script src="{% static 'bugtracker/index_vanilla.js' %}"></script> -->
 	<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
 	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
 	
-	<!-- <h2 id="index_header"><span style="color:black;">Welcome!</span></h2> -->
-	
-    <div id="app"></div>
-    
-	<!-- <script type="text/babel">
+	<div id="app"></div>
+	<script type="text/babel">
 
 	class App extends React.Component {
 
 			render() {
 				return (
 					<div>
-						<h2 id="buglist_header" >Your list of bugs:</h2>
+						<h2 id="error_header" >404 Page Not Found</h2>
 					</div>
 				);
 			}	
@@ -26,7 +23,7 @@
 
 		ReactDOM.render(<App />, document.querySelector('#app'));
 
-	</script> -->
+	</script>
 
 
 {% endblock %}
