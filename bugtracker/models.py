@@ -8,7 +8,7 @@ class organization(models.Model):
 		return f"{self.id}: {self.name}"
 
 class User(AbstractUser):
-	org = models.ForeignKey(organization, on_delete=models.CASCADE, related_name="patron", blank=False, null=False)
+	org = models.ForeignKey(organization, on_delete=models.CASCADE, related_name="patron", blank=False, null=True)
 	# test = models.CharField(null=True, max_length=128)
 
 class BUG_TYPES: # bug types

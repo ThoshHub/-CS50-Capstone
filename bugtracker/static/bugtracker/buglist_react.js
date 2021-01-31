@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// TODO how to call a function in react?
+// TODO how to call a function in react? on pageload
 // function()
 
 async function  componentDidMount() {
@@ -8,6 +8,7 @@ async function  componentDidMount() {
         // TODO query buglistmessages here
       const res = await fetch('http://127.0.0.1:8000/api/'); // fetching the data from api, before the page loaded
       const todos = await res.json();
+      console.log("Returned: " + todos);
       this.setState({
         todos
       });

@@ -11,5 +11,8 @@ Progress:
         /For all foreign keys in models, get rid of nulls, blanks, and defaults
     /Need to change the title string (Self def)
 
-    Need to list all current bugs on the index page (if not logged in)
+    21.01.29 - Left off on rendering bugs page
+
+    Need to list all current bugs on the index page (if logged in)
+        Gonna need to come up with alternative 
     Need to replace front-end with react
