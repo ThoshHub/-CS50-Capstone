@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// TODO how to call a function in react?
+// function()
+
 async function  componentDidMount() {
     try {
         // TODO query buglistmessages here

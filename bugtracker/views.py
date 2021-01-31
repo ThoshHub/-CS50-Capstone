@@ -82,6 +82,12 @@ def buglistmessages(request):
 
 # returns a list of bugs in list format
 def querybugs():
+	# TODO need to pass in id of user requesting data
+	# From there get the org that the user works for
+	# Then get all bugs under that org
+	# Put the ids of the bugs into a list 
+	# Return this list
+
 	return "test"
 
 def createbug(request):
