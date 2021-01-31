@@ -12,6 +12,10 @@ Progress:
     /Need to change the title string (Self def)
 
     21.01.29 - Left off on rendering bugs page
+        Need to make a get request to the view that returns JSON with bug list
+        Need for that to print out something to make sure that view is being hit
+            From there you can change it so that 
+
 
     Need to list all current bugs on the index page (if logged in)
         Gonna need to come up with alternative 

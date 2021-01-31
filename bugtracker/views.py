@@ -17,7 +17,7 @@ from django.db.models import Q
 
 # Create your views here.
 def index(request):
-    return render(request, "bugtracker/index.html")
+	return render(request, "bugtracker/index.html")
 
 def login_view(request):
 	if request.method == "POST":
@@ -77,6 +77,7 @@ def buglistpage(request):
 
 # returns a list of bugs retrieved from database in JSON form
 def buglistmessages(request):
+	print("Line 80 HIT")
 	data = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy Data for Debugging
 	return JsonResponse(data, safe=False)
 
@@ -87,6 +88,11 @@ def querybugs():
 	# Then get all bugs under that org
 	# Put the ids of the bugs into a list 
 	# Return this list
+
+	return "test"
+
+def currentuserid():
+	# returns current user id 
 
 	return "test"
 
