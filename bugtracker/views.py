@@ -70,9 +70,19 @@ def register(request):
 	else:
 		return render(request, "bugtracker/register.html")
 
-def buglist(request):
+# returns an html page that contains list of bugs retrieved from the database
+def buglistpage(request):
 	# Need to grab list of bugs that 
-	return render(request, "bugtracker/buglist.html")
+	return render(request, "bugtracker/buglistpage.html")
+
+# returns a list of bugs retrieved from database in JSON form
+def buglistmessages(request):
+	data = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy Data for Debugging
+	return JsonResponse(data, safe=False)
+
+# returns a list of bugs in list format
+def querybugs():
+	return "test"
 
 def createbug(request):
 	return render(request, "bugtracker/error.html")
