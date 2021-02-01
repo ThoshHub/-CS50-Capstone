@@ -78,22 +78,17 @@ def buglistpage(request):
 # returns a list of bugs retrieved from database in JSON form
 def buglistmessages(request):
 	id = currentuserid(request); # get id of current user
-	org_sel = orgofid(id) # get the organization of the current user
-	org_sel_id = org_sel['org'] # get id of organization
-	orgbugs = bug.objects.filter(org = org_sel_id) # grab a list of all bugs from that org
+	orgbugs = querybugs(id)
 	bugs_list = json.loads(serializers.serialize("json", orgbugs)) # format that list of bugs and format it into JSON
 	# bugs_list = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy JSON for Debugging
 	return JsonResponse(bugs_list, safe=False) # return that json object
 
-# returns a list of bugs in list format
-def querybugs():
-	# TODO need to pass in id of user requesting data
-	# From there get the org that the user works for
-	# Then get all bugs under that org
-	# Put the ids of the bugs into a list 
-	# Return this list
-
-	return "test"
+# returns a list of bugs in list format, given id of a user
+def querybugs(id):
+	org_sel = orgofid(id) # get the organization of the current user
+	org_sel_id = org_sel['org'] # get id of organization
+	orgbugs = bug.objects.filter(org = org_sel_id) # grab a list of all bugs from that org
+	return orgbugs
 
 # returns id of organization of the user (user id) that is passed in
 def orgofid(user_id):
