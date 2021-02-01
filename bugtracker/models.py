@@ -50,5 +50,7 @@ class bug(models.Model):
 	)
 	estimate = models.PositiveIntegerField(null=False)
 	sme = models.ForeignKey(User, on_delete=models.CASCADE, related_name= "owner", blank=False, null=False) # sme = subject matter expert
+	org = models.ForeignKey(organization, on_delete=models.CASCADE, related_name="error", blank=False, null=True)
+
 	def __str__(self): 
 		return f"{self.id}: {self.title}"

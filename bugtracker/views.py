@@ -78,11 +78,12 @@ def buglistpage(request):
 # returns a list of bugs retrieved from database in JSON form
 def buglistmessages(request):
 	id = currentuserid(request); # get id of current user
-	org = orgofid(id) # get the organization of the current user
-	print(str(org))
-
-	data = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy Data for Debugging
-	return JsonResponse(data, safe=False)
+	org_sel = orgofid(id) # get the organization of the current user
+	org_sel_id = org_sel['org'] # get id of organization
+	orgbugs = bug.objects.filter(org = org_sel_id) # grab a list of all bugs from that org
+	bugs_list = json.loads(serializers.serialize("json", orgbugs)) # format that list of bugs and format it into JSON
+	# bugs_list = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy JSON for Debugging
+	return JsonResponse(bugs_list, safe=False) # return that json object
 
 # returns a list of bugs in list format
 def querybugs():
@@ -98,13 +99,7 @@ def querybugs():
 def orgofid(user_id):
 	# Filter users by id passed in, then get the organization that the user belongs to
 	org = User.objects.filter(id = user_id).values('org')
-
-	# TODO grab a list of all users from that org
-	# TODO grab all bugs that belong to that list of users
-	# TODO format that list of bugs and format it into JSON
-	# TODO return that json object
-
-	return org
+	return org[0] # only 1 value should be returned
 
 # returns user id of the user who is currently logged in
 def currentuserid(request):
