@@ -78,10 +78,10 @@ def buglistpage(request):
 # returns a list of bugs retrieved from database in JSON form
 def buglistmessages(request):
 	id = currentuserid(request); # get id of current user
-	orgbugs = querybugs(id)
-	bugs_list = json.loads(serializers.serialize("json", orgbugs)) # format that list of bugs and format it into JSON
-	# bugs_list = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy JSON for Debugging
-	return JsonResponse(bugs_list, safe=False) # return that json object
+	orgbugs = querybugs(id) # gets list of bugs from the organization belonging to the user whose ID is passed in
+	bugs_json = json.loads(serializers.serialize("json", orgbugs)) # format that list of bugs and format it into JSON
+	# bugs_json = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy JSON for Debugging
+	return JsonResponse(bugs_json, safe=False) # return that json object
 
 # returns a list of bugs in list format, given id of a user
 def querybugs(id):
@@ -104,4 +104,4 @@ def currentuserid(request):
 		return request.user.id # otherwise sends user id
 
 def createbug(request):
-	return render(request, "bugtracker/error.html")
+	return render(request, "bugtracker/error.html") # error page for now
