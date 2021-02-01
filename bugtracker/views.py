@@ -7,7 +7,7 @@ from django.http import request
 from django.shortcuts import render
 from django.urls import reverse
 # from .forms import messageForm
-# from .models import User, message
+from .models import User, bug, organization
 from django.http import JsonResponse
 from django.core import serializers
 import json
@@ -77,7 +77,10 @@ def buglistpage(request):
 
 # returns a list of bugs retrieved from database in JSON form
 def buglistmessages(request):
-	print("Line 80 HIT")
+	id = currentuserid(request); # get id of current user
+	org = orgofid(id) # get the organization of the current user
+	print(str(org))
+
 	data = "{\"name\":\"John\", \"age\":31, \"city\":\"New Yorkk\"}" # Dummy Data for Debugging
 	return JsonResponse(data, safe=False)
 
@@ -91,10 +94,24 @@ def querybugs():
 
 	return "test"
 
-def currentuserid():
-	# returns current user id 
+# returns id of organization of the user (user id) that is passed in
+def orgofid(user_id):
+	# Filter users by id passed in, then get the organization that the user belongs to
+	org = User.objects.filter(id = user_id).values('org')
 
-	return "test"
+	# TODO grab a list of all users from that org
+	# TODO grab all bugs that belong to that list of users
+	# TODO format that list of bugs and format it into JSON
+	# TODO return that json object
+
+	return org
+
+# returns user id of the user who is currently logged in
+def currentuserid(request):
+	if not request.user.is_authenticated:
+		return -1 # sends -1 if user is not logged in
+	else:
+		return request.user.id # otherwise sends user id
 
 def createbug(request):
 	return render(request, "bugtracker/error.html")
