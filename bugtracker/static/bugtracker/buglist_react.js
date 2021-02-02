@@ -3,28 +3,16 @@
 // TODO how to call a function in react? on pageload
 // function()
 
-async function intialize() {
-    try {
-        // TODO query buglistmessages here
-        // const res = await fetch('http://127.0.0.1:8000/api/'); // fetching the data from api, before the page loaded
-        
+async function intialize() {        
         const res = await fetch('/bugtracker/buglistmessages'); // fetching the data from api, before the page loaded
-        console.log("Called Initialize Function");
-
         const buglist_json = await res.json();
-        console.log("Returned: " + buglist_json);
-        // this.setState({
-        //     todos
-        // });
-    } catch (e) {
-        console.log(e);
-    }
+        buglist_json.forEach(element => { console.log(element) });
+        return buglist_json;
 }
 
-class App extends React.Component {
+class Header extends React.Component {
 
     render() {
-        intialize();
         
         return (
             <div>
@@ -34,4 +22,36 @@ class App extends React.Component {
     }	
 }
 
-ReactDOM.render(<App />, document.querySelector('#app'));
+class Buglist extends React.Component {
+    
+    constructor(props) {
+        super(props);
+        this.state = {
+            title: "title",
+            description: "description",
+            severity: "severity",
+            type: "type",
+            estimate: 0,
+            owner: "owner"
+        };
+    }
+
+    render() {
+        let buglist_json = intialize();
+        
+        // TODO return json from initialize method and store it in a variable
+        // once it is stored, you need to loop through it (it is a list of JSONs)
+        // and for each json, set the state and display it 
+        // as of writing this, not sure how to display additional fields in react but 
+
+        return (
+            <div>
+                <h2 id="index_header" >Buglist goes here:</h2>
+            </div>
+        );
+    }	
+}
+
+
+ReactDOM.render(<Header />, document.querySelector('#header'));
+ReactDOM.render(<Buglist />, document.querySelector('#bugs'));
