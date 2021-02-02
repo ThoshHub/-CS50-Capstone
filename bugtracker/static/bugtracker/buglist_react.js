@@ -43,6 +43,7 @@ class Buglist extends React.Component {
         // once it is stored, you need to loop through it (it is a list of JSONs)
         // and for each json, set the state and display it 
         // as of writing this, not sure how to display additional fields in react but 
+        // https://reactjs.org/docs/lists-and-keys.html
 
         return (
             <div>
@@ -55,3 +56,4 @@ class Buglist extends React.Component {
 
 ReactDOM.render(<Header />, document.querySelector('#header'));
 ReactDOM.render(<Buglist />, document.querySelector('#bugs'));
+ReactDOM.render(<Buglist />, document.querySelector('#bugs')); // Second one does not render, but initalize is called twice
