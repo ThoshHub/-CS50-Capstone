@@ -26,6 +26,7 @@ class Buglist extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            raw: null,
             title: "title",
             description: "description",
             severity: "severity",
@@ -35,24 +36,15 @@ class Buglist extends React.Component {
         };
     }
 
-    intialize() {
-        fetch('/bugtracker/buglistmessages') // fetching the data from api, before the page loaded
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-          });
-        // .then(data => this.setState({data}));  
+    async componentDidMount() {
+        const url = '/bugtracker/buglistmessages';
+        const response = await fetch(url);
+        const data = await response.json();
+        this.setState({raw: data[0]});
+        console.log(data[0]);
     }
 
     render() {
-        intialize(); // TODO This errors out and isn't working...
-        // https://www.google.com/search?q=react+how+to+fetch+and+render+data&oq=react+how+to+fetch+and+render+data&aqs=chrome..69i57j33i22i29i30.9480j0j4&sourceid=chrome&ie=UTF-8
-        // let data = await buglist_json.json();
-
-        // console.log(buglist_json);
-
-
-
         // TODO return json from initialize method and store it in a variable
         // once it is stored, you need to loop through it (it is a list of JSONs)
         // and for each json, set the state and display it 
