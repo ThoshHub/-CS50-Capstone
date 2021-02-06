@@ -62,7 +62,9 @@ class Buglist extends React.Component {
             <div>
                 {/* {this.state.raw} */}
                 {this.state.raw.map((bug, i) => (
-                    <div>{bug.fields.title}</div>
+                    <div class="bugbox">
+                        <div><strong>Title: </strong> {bug.fields.title}</div>
+                    </div>
                 ))}
             </div>
         );
