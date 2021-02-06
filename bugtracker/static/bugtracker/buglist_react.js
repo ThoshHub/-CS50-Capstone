@@ -26,13 +26,14 @@ class Buglist extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            loading: true,
             raw: null,
-            title: "title",
-            description: "description",
-            severity: "severity",
-            type: "type",
-            estimate: 0,
-            owner: "owner"
+            // title: "title",
+            // description: "description",
+            // severity: "severity",
+            // type: "type",
+            // estimate: 0,
+            // owner: "owner"
         };
     }
 
@@ -40,20 +41,29 @@ class Buglist extends React.Component {
         const url = '/bugtracker/buglistmessages';
         const response = await fetch(url);
         const data = await response.json();
-        this.setState({raw: data[0]});
-        console.log(data[0]);
+        this.setState({raw: data[0], loading: false});
+        console.log(data[0].fields.title);
     }
 
     render() {
+        
         // TODO return json from initialize method and store it in a variable
         // once it is stored, you need to loop through it (it is a list of JSONs)
         // and for each json, set the state and display it 
         // as of writing this, not sure how to display additional fields in react but 
         // https://reactjs.org/docs/lists-and-keys.html
 
+        if(this.state.loading){
+            return <div>Loading...</div>;
+        }
+
+        if(this.state.raw.length == 0){
+            return <div><h1>There are no bugs!</h1></div>
+        }
+
         return (
             <div>
-                <h2 id="index_header" >Buglist goes here:</h2>
+                {this.state.raw.fields.title}
             </div>
         );
     }	
