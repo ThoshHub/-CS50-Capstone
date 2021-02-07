@@ -105,3 +105,6 @@ def currentuserid(request):
 
 def createbug(request):
 	return render(request, "bugtracker/error.html") # error page for now
+
+def bugdetails(request):
+	return "TEST"

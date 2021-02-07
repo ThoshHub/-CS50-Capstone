@@ -36,6 +36,8 @@ Progress:
             but the url needs to be just /details instead of details/2 for example
             because the number would mean that people could go to a url to see details which is not wanted
             I think we can do this through a request.POST 
+        
+            *It looks like what we need to do is a button with an onclick that creates a post request to a url route
 
         All information present on page
         also edit button which redirects to another prepopulated page

@@ -29,6 +29,7 @@ class Buglist extends React.Component {
             loading: true,
             raw: null,
         };
+        // this.returnDetails = this.returnDetails.bind(this)
     }
 
     async componentDidMount() {
@@ -77,6 +78,11 @@ class Buglist extends React.Component {
         } 
     }
 
+    returnDetails(pk) {
+        console.log('Returning Details For: ' + pk.toString())
+        // alert('Returning Details...')
+    }
+
     render() {
 
         // https://reactjs.org/docs/lists-and-keys.html
@@ -105,7 +111,8 @@ class Buglist extends React.Component {
                         <div><strong>Type: </strong> <span>{this.toTitleCase(bug.fields.type)}</span></div>
 
                         {/* The action attribute is failing, need to figure out how to route urls between react and django */}
-                        <a href="/bugtracker" class="btn btn-primary" style={detailsStyle}>Details</a>
+                        <button class="btn btn-primary" style={detailsStyle} onClick={() => this.returnDetails(bug.pk)}>Details</button> 
+                        {/* <button class="btn btn-primary" style={detailsStyle} onclick={() => this.returnDetails(bug.pk)}>Details</button>  */}
                     </div>
                 ))}
             </div>
