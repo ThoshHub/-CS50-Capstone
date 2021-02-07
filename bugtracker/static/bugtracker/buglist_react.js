@@ -28,12 +28,6 @@ class Buglist extends React.Component {
         this.state = {
             loading: true,
             raw: null,
-            // title: "title",
-            // description: "description",
-            // severity: "severity",
-            // type: "type",
-            // estimate: 0,
-            // owner: "owner"
         };
     }
 
@@ -45,6 +39,15 @@ class Buglist extends React.Component {
         // console.log(data[0].fields.title); //log the first one
         console.log(this.state.raw); //log the first one
     }
+
+    toTitleCase(str) {
+        return str.replace(
+          /\w\S*/g,
+          function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+          }
+        );
+      }
 
     render() {
 
@@ -64,6 +67,8 @@ class Buglist extends React.Component {
                 {this.state.raw.map((bug, i) => (
                     <div class="bugbox">
                         <div><strong>Title: </strong> {bug.fields.title}</div>
+                        <div><strong>Severity: </strong> {this.toTitleCase(bug.fields.severity)}</div>
+                        <div><strong>Type: </strong> {this.toTitleCase(bug.fields.type)}</div>
                     </div>
                 ))}
             </div>

@@ -11,12 +11,39 @@ Progress:
         /For all foreign keys in models, get rid of nulls, blanks, and defaults
     /Need to change the title string (Self def)
 
-    21.01.29 - Left off on rendering bugs page
-        Need to make a get request to the view that returns JSON with bug list
-        Need for that to print out something to make sure that view is being hit
-            From there you can change it so that 
+    /21.01.29 - Left off on rendering bugs page
+    /    Need to make a get request to the view that returns JSON with bug list
+    /    Need for that to print out something to make sure that view is being hit
+    /        From there you can change it so that 
 
 
-    Need to list all current bugs on the index page (if logged in)
-        Gonna need to come up with alternative 
-    Need to replace front-end with react
+    /Need to list all current bugs on the index page (if logged in)
+    /    Gonna need to come up with alternative 
+    /Need to replace front-end with react
+
+
+    20.02.06:
+
+    Need to add all information about the bug to bug list
+        /title
+        /severity
+            colors?
+        /type
+            colors?
+        (then a small label at the bottom in light gray asking user to click for more details)
+    Make div clickable -> onclick it redirects to detailed page 
+        All information
+        also edit button 
+            I think its better this way because it distinguishes it from the other webapps which is part of the requirements
+    detailed page has an edit button
+        Make it do nothing for now  
+
+    Need to make "create bug" page 
+    Need to total bug list to homescreen
+    Need to reroute homescreen to buglist
+
+
+.
+.
+.
+React Native?
