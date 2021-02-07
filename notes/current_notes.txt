@@ -32,8 +32,13 @@ Progress:
     /        colors?
     /    (then a small label at the bottom in light gray asking user to click for more details)
     Make details button clickable -> onclick it redirects to detailed page 
-        All information present
-        also edit button 
+        The way this needs to work is it goes to the details screen
+            but the url needs to be just /details instead of details/2 for example
+            because the number would mean that people could go to a url to see details which is not wanted
+            I think we can do this through a request.POST 
+
+        All information present on page
+        also edit button which redirects to another prepopulated page
             I think its better this way because it distinguishes it from the other webapps which is part of the requirements
 
     Need to make "create bug" page 
