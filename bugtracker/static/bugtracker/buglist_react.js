@@ -61,7 +61,7 @@ class Buglist extends React.Component {
         }
     }
 
-    typeStyleConditional(type) {
+    typeStyleConditional(type) { // leave it black for the time being
         if(type == 'FUNCTIONAL') {
             return {color: 'black'}
         } else if(type == 'PERFORMANCE') {
@@ -89,8 +89,9 @@ class Buglist extends React.Component {
             return <div><h1>There are no bugs!</h1></div>
         }
 
-        let severityStyle = { // not used as of creation of severityStyleconditional()
-            color: 'crimson',
+        let detailsStyle = {
+            'margin-bottom': '5px',
+            'margin-top': '5px',
         }
 
         return (
@@ -102,6 +103,9 @@ class Buglist extends React.Component {
                         {/* Here the bug.fields.severity var is being passed into the function severityStyleConditional() where it returns a CSS style that is rendered in the style tag in the <span> element */}
                         <div><strong>Severity: </strong> <span style={this.severityStyleConditional(bug.fields.severity)}>{this.toTitleCase(bug.fields.severity)}</span></div>
                         <div><strong>Type: </strong> <span>{this.toTitleCase(bug.fields.type)}</span></div>
+                        
+                        {/* The action attribute is failing, need to figure out how to route urls between react and django */}
+                        <button class="btn btn-primary" style={detailsStyle} action={`% url 'index' %`}>Details</button> 
                     </div>
                 ))}
             </div>

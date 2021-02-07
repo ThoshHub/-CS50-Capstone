@@ -24,19 +24,17 @@ Progress:
 
     20.02.06:
 
-    Need to add all information about the bug to bug list
-        /title
-        /severity
-            colors?
-        /type
-            colors?
-        (then a small label at the bottom in light gray asking user to click for more details)
-    Make div clickable -> onclick it redirects to detailed page 
-        All information
+    /Need to add all information about the bug to bug list
+    /    title
+    /    severity
+    /        colors?
+    /    type
+    /        colors?
+    /    (then a small label at the bottom in light gray asking user to click for more details)
+    Make details button clickable -> onclick it redirects to detailed page 
+        All information present
         also edit button 
             I think its better this way because it distinguishes it from the other webapps which is part of the requirements
-    detailed page has an edit button
-        Make it do nothing for now  
 
     Need to make "create bug" page 
     Need to total bug list to homescreen
