@@ -49,6 +49,34 @@ class Buglist extends React.Component {
         );
       }
 
+    severityStyleConditional(severity) {
+        if(severity == 'CRITICAL') {
+            return {color: 'crimson', 'font-weight': 'bold'}
+        } else if (severity == 'HIGH') {
+            return {color: 'red', 'font-weight': 'bold'}
+        } else if (severity == 'MEDIUM') {
+            return {color: 'orange'}
+        } else { // severity == low is the only other option
+            return {color: 'green'}
+        }
+    }
+
+    typeStyleConditional(type) {
+        if(type == 'FUNCTIONAL') {
+            return {color: 'black'}
+        } else if(type == 'PERFORMANCE') {
+            return {color: 'black'}
+        } else if(type == 'USABILITY') {
+            return {color: 'black'}
+        } else if(type == 'COMPATABILITY') {
+            return {color: 'black'}
+        } else if(type == 'SECURITY') {
+            return {color: 'black'}
+        } else  { // type = other is the only other option
+            return {color: 'black'}
+        } 
+    }
+
     render() {
 
         // https://reactjs.org/docs/lists-and-keys.html
@@ -61,14 +89,19 @@ class Buglist extends React.Component {
             return <div><h1>There are no bugs!</h1></div>
         }
 
+        let severityStyle = { // not used as of creation of severityStyleconditional()
+            color: 'crimson',
+        }
+
         return (
             <div>
                 {/* {this.state.raw} */}
                 {this.state.raw.map((bug, i) => (
-                    <div class="bugbox">
+                    <div key={`bug-num-${i}`} id={`bug-num-${i}`} class="bugbox">
                         <div><strong>Title: </strong> {bug.fields.title}</div>
-                        <div><strong>Severity: </strong> {this.toTitleCase(bug.fields.severity)}</div>
-                        <div><strong>Type: </strong> {this.toTitleCase(bug.fields.type)}</div>
+                        {/* Here the bug.fields.severity var is being passed into the function severityStyleConditional() where it returns a CSS style that is rendered in the style tag in the <span> element */}
+                        <div><strong>Severity: </strong> <span style={this.severityStyleConditional(bug.fields.severity)}>{this.toTitleCase(bug.fields.severity)}</span></div>
+                        <div><strong>Type: </strong> <span>{this.toTitleCase(bug.fields.type)}</span></div>
                     </div>
                 ))}
             </div>
