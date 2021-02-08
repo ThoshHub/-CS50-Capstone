@@ -80,7 +80,9 @@ class Buglist extends React.Component {
 
     returnDetails(pk) {
         console.log('Returning Details For: ' + pk.toString())
-        // alert('Returning Details...')
+        
+
+
     }
 
     render() {
@@ -96,7 +98,7 @@ class Buglist extends React.Component {
         }
 
         let detailsStyle = {
-            'margin-bottom': '5px',
+            // 'margin-bottom': '5px',
             'margin-top': '5px',
         }
 
