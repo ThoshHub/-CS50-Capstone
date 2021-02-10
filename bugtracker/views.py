@@ -108,4 +108,7 @@ def createbug(request):
 
 def bugdetails(request):
 	print("-- BugDetails Was Called --") # This line is called, as expected
-	return "TEST"
+	data = "{\"message\":\"Message Recieved\"}" # Dummy Data for Debugging
+	
+	# TODO instead of returning JSON, return new page using render function
+	return JsonResponse(data, safe=False)

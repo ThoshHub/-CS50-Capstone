@@ -93,7 +93,7 @@ class Buglist extends React.Component {
         return cookieValue;
     }    
     
-    returnDetails(pk) { // JSLint
+    async returnDetails(pk) { // JSLint
         console.log('Returning Details For: ' + pk.toString())
         // console.log("CRSF Token: " + csrftoken)
         var csrftoken = this.getCookie('csrftoken'); 
@@ -109,6 +109,11 @@ class Buglist extends React.Component {
             },
             body: {}
            })
+           .then(data => {
+               // this is returning a promise I think
+               // perhaps need to make it async?
+               console.log(data)  
+           });
     }
 
     render() {
