@@ -1,0 +1,1 @@
+window.$ = window.jQuery = require('jquery') // TODO unable to import

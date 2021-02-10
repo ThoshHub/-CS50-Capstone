@@ -39,6 +39,7 @@ Progress:
         
             *It looks like what we need to do is a button with an onclick that creates a post request to a url route
 
+        This might be easier with a django page instead of a react one from scratch
         All information present on page
         also edit button which redirects to another prepopulated page
             I think its better this way because it distinguishes it from the other webapps which is part of the requirements

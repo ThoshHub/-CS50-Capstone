@@ -107,4 +107,5 @@ def createbug(request):
 	return render(request, "bugtracker/error.html") # error page for now
 
 def bugdetails(request):
+	print("-- BugDetails Was Called --") # This line is called, as expected
 	return "TEST"

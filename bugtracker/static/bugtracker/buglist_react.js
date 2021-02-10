@@ -1,7 +1,6 @@
 // import React, { Component } from 'react';
-
-// TODO how to call a function in react? on pageload
-// function()
+// import 'bugtracker/loader.js'
+// import $ from "jquery"
 
 // async function intialize() {        
 //         const res = await fetch('/bugtracker/buglistmessages'); // fetching the data from api, before the page loaded
@@ -78,11 +77,38 @@ class Buglist extends React.Component {
         } 
     }
 
-    returnDetails(pk) {
+    getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }    
+    
+    returnDetails(pk) { // JSLint
         console.log('Returning Details For: ' + pk.toString())
-        
-
-
+        // console.log("CRSF Token: " + csrftoken)
+        var csrftoken = this.getCookie('csrftoken'); 
+        const url = '/bugtracker/bugdetails'
+        fetch(url, {
+            credentials: 'include',
+            method: 'POST',
+            mode: 'same-origin',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'X-CSRFToken': csrftoken
+            },
+            body: {}
+           })
     }
 
     render() {
