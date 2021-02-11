@@ -111,4 +111,6 @@ def bugdetails(request):
 	data = "{\"message\":\"Message Recieved\"}" # Dummy Data for Debugging
 	
 	# TODO instead of returning JSON, return new page using render function
-	return JsonResponse(data, safe=False)
+	# This is not rendering the page,
+	# I think that this may be happening because I am using fetch and not a link
+	return render(request, "bugtracker/error.html") # error page for now
