@@ -114,6 +114,10 @@ class Buglist extends React.Component {
            });
     }
 
+    submitBug() {
+        console.log("Submitting: ")
+    }
+
     render() {
 
         // https://reactjs.org/docs/lists-and-keys.html
@@ -142,8 +146,14 @@ class Buglist extends React.Component {
                         <div><strong>Type: </strong> <span>{this.toTitleCase(bug.fields.type)}</span></div>
 
                         {/* The action attribute is failing, need to figure out how to route urls between react and django */}
-                        <button class="btn btn-primary" style={detailsStyle} onClick={() => this.returnDetails(bug.pk)}>Details</button> 
-                        {/* <button class="btn btn-primary" style={detailsStyle} onclick={() => this.returnDetails(bug.pk)}>Details</button>  */}
+                        {/* <button class="btn btn-primary" style={detailsStyle} onClick={() => this.returnDetails(bug.pk)}>Details</button>  */}
+                        
+                        {/* TODO left off on trying to send submit from this "form" */}
+                        {/* <form action="/bugtracker/buglistpage" method="post">
+                            <button class="btn btn-primary" id={`bbt-${bug.pk}`} style={detailsStyle} onClick={() => this.submitBug()}>Details</button> 
+                        </form> */}
+
+                        <a class="btn btn-primary" style={detailsStyle} href="/bugtracker/">Details</a> 
                     </div>
                 ))}
             </div>

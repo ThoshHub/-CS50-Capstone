@@ -32,13 +32,20 @@ Progress:
     /        colors?
     /    (then a small label at the bottom in light gray asking user to click for more details)
     
-    Currently the page is being returned but not rendered, there are a couple ways to deal with this.
-    1. Change it from button/fetch to href link
-    2. Change it from post to something else
-    3. Sink more time into researching why it's not working now.
-    4. Rewrite it from scratch in Vanilla instead of React
-    5. Instead of rendering new page, modify react to update page with current details
-    
+   / Currently the page is being returned but not rendered, there are a couple ways to deal with this.
+   / 1. Change it from button/fetch to href link
+   / 2. Change it from post to something else
+   /     The guy on discord said to change it to submit???
+   / 3. Sink more time into researching why it's not working now.
+   / 4. Rewrite it from scratch in Vanilla instead of React
+   / 5. Instead of rendering new page, modify react to update page with current details
+   /     I think react is supposed to not render new pages so maybe if I want to keep react I have to do this?
+
+    Currently going to change it to make it into a link 
+        On the load of the details page, we can add server side validation to see if the user belongs to the corrent company to view the bug
+            but do this later, after you get all other functionality first!
+
+
     Make details button clickable -> onclick it redirects to detailed page 
         The way this needs to work is it goes to the details screen
             but the url needs to be just /details instead of details/2 for example
