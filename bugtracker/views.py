@@ -110,11 +110,12 @@ def currentuserid(request):
 def createbug(request):
 	return render(request, "bugtracker/error.html") # error page for now
 
-def bugdetails(request, user_id):
+def bugdetailspage(request, message_id):
 	print("-- BugDetails Was Called --") # This line is called, as expected
-	data = "{\"message\":\"Message Recieved\"}" # Dummy Data for Debugging
-	
-	# TODO instead of returning JSON, return new page using render function
-	# This is not rendering the page,
-	# I think that this may be happening because I am using fetch and not a link
+	return render(request, "bugtracker/bugdetailspage.html", {
+		"message_id": str(message_id)
+	})
+
+
+def bugdetailcontent(request, message_id):
 	return render(request, "bugtracker/error.html") # error page for now

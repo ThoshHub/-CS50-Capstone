@@ -154,7 +154,7 @@ class Buglist extends React.Component {
                         </form> */}
                         
                         {/* TODO make this a link to another page with all th */}
-                        <a class="btn btn-primary" style={detailsStyle} href="/bugtracker/">Details</a> 
+                        <a class="btn btn-primary" style={detailsStyle} href={`/bugtracker/bugdetailspage/${bug.pk}`}>Details</a> 
                     </div>
                 ))}
             </div>

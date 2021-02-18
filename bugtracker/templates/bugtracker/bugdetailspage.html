@@ -1,0 +1,13 @@
+{% extends "bugtracker/layout.html" %}
+{% load static %}
+
+{% block body %}
+	<script src="{% static 'bugtracker/bugdetailspage.js' %}"></script>
+	
+	<h2 id="bugdetailspage_id"><span style="color:black;">{{message_id}}</span></h2>
+	 
+    <div id="header"></div>
+	
+	<div id="bugs"></div>
+    
+{% endblock %}
