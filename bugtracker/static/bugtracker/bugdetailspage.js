@@ -12,8 +12,8 @@ async function initialize(bug_id) {
 	//console.log("You have reached bugdetails page...");
     //console.log(bug_id.toString());
 
-    fetch('/bugtracker/bugdetailcontent/' + bug_id);
-    .then(res => res.json());
+    fetch('/bugtracker/bugdetailcontent/' + bug_id)
+    .then(res => res.json())
     .then(data => {
         // log the data
         // console.log(data);
@@ -25,23 +25,27 @@ async function initialize(bug_id) {
 
 function display_bug(data, bug_id){
     console.log("Attempting to display the bug... ");
-    const bug_title = data.title;
-    const bug_description = data.description;
-    const bug_severity = data.severity;
-    const bug_estimate = data.estimate;
-    const bug_sme = data.sme;
-    const bug_org = data.org;
+    const bug_title = data.title.toString();
+    const bug_description = data.description.toString();
+    const bug_severity = data.severity.toString();
+    const bug_estimate = data.estimate.toString();
+    const bug_sme = data.sme.toString();
+    const bug_org = data.org.toString();
 
     var bugpost = document.createElement('div');
     bugpost.id = "bug_" + bug_id;
     bugpost.innerHTML = generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org); // Generates the inner HTML
     bugpost.innerHTML += generateEditButton(bug_id);
+
+    // TODO add some CSS here
+    document.querySelector('#bugdetailspage_info').append(bugpost)
 }
 
 function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org){
-    return "0   "; // dummy
+    let div = "<h1>" + bug_title +  "</h1>";
+    return div; // dummy
 }
 
 function generateEditButton(bug_id){
-    return "0"; // dummy
+    return ""; // dummy
 }
