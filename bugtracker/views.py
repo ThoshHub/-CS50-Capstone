@@ -17,7 +17,11 @@ from django.db.models import Q
 
 # Create your views here.
 def index(request):
-	return render(request, "bugtracker/index.html")
+	if not request.user.is_authenticated: # if the user is not authenticated, take them to the login page
+		return render(request, "bugtracker/login.html")
+	else: # if the user is logged in, take them to the buglist page
+		# return render(request, "bugtracker/index.html")
+		return render(request, "bugtracker/buglistpage.html")
 
 def login_view(request):
 	if request.method == "POST":
@@ -106,7 +110,7 @@ def currentuserid(request):
 def createbug(request):
 	return render(request, "bugtracker/error.html") # error page for now
 
-def bugdetails(request):
+def bugdetails(request, user_id):
 	print("-- BugDetails Was Called --") # This line is called, as expected
 	data = "{\"message\":\"Message Recieved\"}" # Dummy Data for Debugging
 	

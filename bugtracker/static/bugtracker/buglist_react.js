@@ -152,7 +152,8 @@ class Buglist extends React.Component {
                         {/* <form action="/bugtracker/buglistpage" method="post">
                             <button class="btn btn-primary" id={`bbt-${bug.pk}`} style={detailsStyle} onClick={() => this.submitBug()}>Details</button> 
                         </form> */}
-
+                        
+                        {/* TODO make this a link to another page with all th */}
                         <a class="btn btn-primary" style={detailsStyle} href="/bugtracker/">Details</a> 
                     </div>
                 ))}
