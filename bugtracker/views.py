@@ -119,6 +119,7 @@ def bugdetailspage(request, bug_id):
 
 def bugdetailcontent(request, bug_id):
 	print("bugdetailcontent returning: " + str(bug_id)) # This line is called, as expected
-
-	data = "{\"name\":\"John\", \"age\":31, \"city\":\"New York\"}" # Dummy Data for Debugging
+	bug_sel = bug.objects.filter(id = bug_id)[0] # get first index
+	data = {'title': str(bug_sel.title), 'description': str(bug_sel.description), 'severity': str(bug_sel.severity), 'estimate': str(bug_sel.estimate), 'sme': str(bug_sel.sme), 'org': str(bug_sel.org)}
+	# data = "{\"name\":\"John\", \"age\":31, \"city\":\"New York\"}" # Dummy Data for Debugging
 	return JsonResponse(data, safe=False)
