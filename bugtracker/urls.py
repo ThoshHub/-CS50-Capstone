@@ -8,10 +8,10 @@ urlpatterns = [
     path("login", views.login_view, name="login"),
     path("logout", views.logout_view, name="logout"),
     path("register", views.register, name="register"),
-    path("bugdetailspage/<int:message_id>", views.bugdetailspage, name="bugdetailspage"), # returns page with details of that id
+    path("bugdetailspage/<int:bug_id>", views.bugdetailspage, name="bugdetailspage"), # returns page with details of that id
 
     # API Routes
     path("buglistmessages", views.buglistmessages, name="buglistmessages"), # gives a list of all messages that belong to user's organization
-    path("bugdetailcontent/<int:message_id>", views.bugdetailcontent, name="bugdetailcontent"), # returns JSON with details of that id
+    path("bugdetailcontent/<int:bug_id>", views.bugdetailcontent, name="bugdetailcontent"), # returns JSON with details of that id
     
 ]

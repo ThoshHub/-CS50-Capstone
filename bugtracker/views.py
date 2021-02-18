@@ -110,12 +110,15 @@ def currentuserid(request):
 def createbug(request):
 	return render(request, "bugtracker/error.html") # error page for now
 
-def bugdetailspage(request, message_id):
-	print("-- BugDetails Was Called --") # This line is called, as expected
+def bugdetailspage(request, bug_id):
+	# print("bugdetailspage render: " + str(bug_id)) # This line is called, as expected
 	return render(request, "bugtracker/bugdetailspage.html", {
-		"message_id": str(message_id)
+		"bug_id": str(bug_id)
 	})
 
 
-def bugdetailcontent(request, message_id):
-	return render(request, "bugtracker/error.html") # error page for now
+def bugdetailcontent(request, bug_id):
+	print("bugdetailcontent returning: " + str(bug_id)) # This line is called, as expected
+
+	data = "{\"name\":\"John\", \"age\":31, \"city\":\"New York\"}" # Dummy Data for Debugging
+	return JsonResponse(data, safe=False)
