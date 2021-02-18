@@ -42,10 +42,12 @@ function display_bug(data, bug_id){
 }
 
 function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org){
-    let div = "<h1>" + bug_title +  "</h1>";
+    let div = "<h1>" + bug_title +  "</h1><br>";
+    div += "<h4>" + bug_description + "</h4>"
     return div; // dummy
 }
 
 function generateEditButton(bug_id){
+    button = "<button>" + "test" + "<button>"
     return ""; // dummy
 }
