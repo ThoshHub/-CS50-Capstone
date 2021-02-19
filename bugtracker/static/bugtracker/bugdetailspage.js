@@ -37,8 +37,10 @@ function display_bug(data, bug_id){
     bugpost.innerHTML = generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org); // Generates the inner HTML
     bugpost.innerHTML += generateEditButton(bug_id);
 
-    // TODO add some CSS here
     document.querySelector('#bugdetailspage_info').append(bugpost)
+
+    // Assign CSS
+	document.getElementById(bugpost.id).className = "bugbox"
 }
 
 function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org){
