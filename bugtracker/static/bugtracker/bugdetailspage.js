@@ -40,16 +40,40 @@ function display_bug(data, bug_id){
     document.querySelector('#bugdetailspage_info').append(bugpost)
 
     // Assign CSS
-	document.getElementById(bugpost.id).className = "bugbox"
+    document.getElementById(bugpost.id).className = "bugbox"
 }
 
 function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org){
+    // generate html for  
+    let severity_style = "btn btn-success" // default is green
+    if (bug_severity.toUpperCase() == "MEDIUM") {
+        severity_style = "btn btn-warning"
+    } else  if (bug_severity.toUpperCase() == "HIGH" || bug_severity.toUpperCase() == "CRITICAL"){
+        severity_style = "btn btn-danger"
+    }
+
+    let estimate_style =  "btn btn-success" // default is green
+    if (parseInt(bug_estimate) > 5) {       // over 5 hours is yellow
+        estimate_style = "btn btn-warning"
+    } else if (parseInt(bug_estimate) > 10) { // over 10 hours is red
+        estimate_style = "btn btn-danger"
+    }
+
     let div = "<h1>" + bug_title +  "</h1><br>";
-    div += "<h4>" + bug_description + "</h4>"
+    div += "<h5>" + "<strong style=\"color: grey;\">Description: </strong>" + bug_description + "</h5>";
+    div += "<h5>" + "<strong style=\"color: grey;\">Priority: </strong>" + "<span class=\"" + severity_style + "\">" + capitalizeFirstLetter(bug_severity.toLowerCase()) + "</span></h5>";
+    div += "<h5>" + "<strong style=\"color: grey;\">Estimate: </strong>" +  "<span class=\"" + estimate_style + "\">" + bug_estimate + "  Hour(s)" + "</span></h5>";
+    
+    // TODO Fill out rest of fields and then add the edit button
+
     return div; // dummy
 }
 
 function generateEditButton(bug_id){
     button = "<button>" + "test" + "<button>"
     return ""; // dummy
+}
+
+function capitalizeFirstLetter(string) {
+	return string.charAt(0).toUpperCase() + string.slice(1);
 }

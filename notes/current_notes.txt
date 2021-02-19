@@ -41,23 +41,23 @@ Progress:
    / 5. Instead of rendering new page, modify react to update page with current details
    /     I think react is supposed to not render new pages so maybe if I want to keep react I have to do this?
 
-    Currently going to change it to make it into a link 
+    /Currently going to change it to make it into a link 
         On the load of the details page, we can add server side validation to see if the user belongs to the corrent company to view the bug
             but do this later, after you get all other functionality first!
 
 
-    Make details button clickable -> onclick it redirects to detailed page 
-        The way this needs to work is it goes to the details screen
-            but the url needs to be just /details instead of details/2 for example
-            because the number would mean that people could go to a url to see details which is not wanted
-            I think we can do this through a request.POST 
-        
-            *It looks like what we need to do is a button with an onclick that creates a post request to a url route
+    /Make details button clickable -> onclick it redirects to detailed page 
+    /    The way this needs to work is it goes to the details screen
+    /        but the url needs to be just /details instead of details/2 for example
+    /        because the number would mean that people could go to a url to see details which is not wanted
+    /        I think we can do this through a request.POST 
+    /    
+    /        *It looks like what we need to do is a button with an onclick that creates a post request to a url route
 
-        This might be easier with a django page instead of a react one from scratch
-        All information present on page
-        also edit button which redirects to another prepopulated page
-            I think its better this way because it distinguishes it from the other webapps which is part of the requirements
+    /    This might be easier with a django page instead of a react one from scratch
+    /    All information present on page
+    /    also edit button which redirects to another prepopulated page
+    /        I think its better this way because it distinguishes it from the other webapps which is part of the requirements
 
     Need to make "create bug" page 
     Need to total bug list to homescreen
