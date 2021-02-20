@@ -24,7 +24,7 @@ async function initialize(bug_id) {
 }
 
 function display_bug(data, bug_id){
-    console.log("Attempting to display the bug... ");
+    console.log("Attempting to display the bug 3... ");
     const bug_title = data.title.toString();
     const bug_description = data.description.toString();
     const bug_severity = data.severity.toString();
@@ -63,7 +63,8 @@ function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_es
     div += "<h5>" + "<strong style=\"color: grey;\">Description: </strong>" + bug_description + "</h5>";
     div += "<h5>" + "<strong style=\"color: grey;\">Priority: </strong>" + "<span class=\"" + severity_style + "\">" + capitalizeFirstLetter(bug_severity.toLowerCase()) + "</span></h5>";
     div += "<h5>" + "<strong style=\"color: grey;\">Estimate: </strong>" +  "<span class=\"" + estimate_style + "\">" + bug_estimate + "  Hour(s)" + "</span></h5>";
-    
+    div += "<h5>" + "<strong style=\"color: grey;\">Assigned To: </strong>" + bug_sme + "</h5>";
+    div += "<h5>" + "<strong style=\"color: grey;\">Company: </strong>" + bug_org + "</h5>";
     // TODO Fill out rest of fields and then add the edit button
 
     return div; // dummy

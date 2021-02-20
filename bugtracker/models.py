@@ -5,7 +5,8 @@ from django.contrib.auth.models import AbstractUser
 class organization(models.Model):
 	name = models.CharField(null=True, max_length=128)
 	def __str__(self): 
-		return f"{self.id}: {self.name}"
+		# return f"{self.id}: {self.name}"
+		return f"{self.name}"
 
 class User(AbstractUser):
 	org = models.ForeignKey(organization, on_delete=models.CASCADE, related_name="patron", blank=False, null=True)
