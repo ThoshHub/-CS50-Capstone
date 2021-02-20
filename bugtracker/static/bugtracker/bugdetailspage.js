@@ -65,13 +65,15 @@ function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_es
     div += "<h5>" + "<strong style=\"color: grey;\">Estimate: </strong>" +  "<span class=\"" + estimate_style + "\">" + bug_estimate + "  Hour(s)" + "</span></h5>";
     div += "<h5>" + "<strong style=\"color: grey;\">Assigned To: </strong>" + bug_sme + "</h5>";
     div += "<h5>" + "<strong style=\"color: grey;\">Company: </strong>" + bug_org + "</h5>";
-    // TODO Fill out rest of fields and then add the edit button
 
     return div; // dummy
 }
 
 function generateEditButton(bug_id){
     button = "<button>" + "test" + "<button>"
+
+    // TODO Add buttons
+
     return ""; // dummy
 }
 
