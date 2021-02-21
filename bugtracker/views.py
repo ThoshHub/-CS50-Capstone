@@ -14,6 +14,7 @@ import json
 from datetime import date, datetime
 from django.utils import timezone
 from django.db.models import Q
+from .forms import bugCreateForm
 
 # Create your views here.
 def index(request):
@@ -128,6 +129,11 @@ def bugdetailedit(request, bug_id):
 	}) # error page for now
 
 def createbug(request):
-	#  TODO need to create html page with custom form to submit
+	if request.method == "POST":
+		print("A post request was made to createbug def in views.py...")
+		# TODO render the bug create form if debugging, otherwise render the list of bugs page
 
-	return render(request, "bugtracker/createbug.html") # error page for now
+	# return render(request, "bugtracker/createbug.html")
+	return render(request, "bugtracker/createbug.html", {
+		"form": bugCreateForm()
+	}) 

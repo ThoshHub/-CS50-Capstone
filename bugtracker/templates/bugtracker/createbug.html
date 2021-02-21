@@ -4,7 +4,14 @@
 {% block body %}
 	<script src="{% static 'bugtracker/createbug.js' %}"></script>
 
-    <div id="createbug_hook" class="bugbox" style="width: 700px"></div>
+	<h2><span style="color:blue;">Create A Bug:</span></h2>
+	<form class="form-group" style="border:5px" action="{% url 'createbug' %}" method="POST">
+		{% csrf_token %}
+
+		{{ form.as_p }}
+
+		<input type="submit">
+	</form>
 
     <!-- <div id="createbug_hook" class="bugbox" style="width: 700px">
         <form id="createbug_form">
