@@ -4,14 +4,16 @@
 {% block body %}
 	<script src="{% static 'bugtracker/createbug.js' %}"></script>
 
-	<h2><span style="color:blue;">Create A Bug:</span></h2>
-	<form class="form-group" style="border:5px" action="{% url 'createbug' %}" method="POST">
-		{% csrf_token %}
-
-		{{ form.as_p }}
-
-		<input type="submit">
-	</form>
+    <h2 style="padding-left: 20px; padding-top:10px;"><span style="color:black;">Create A Bug:</span></h2>
+    <div id="createbug_hook" class="bugbox" style="width: 700px">
+    	<form class="form-group" style="border:5px" action="{% url 'createbug' %}" method="POST">
+            {% csrf_token %}
+    
+            {{ form.as_p }}
+    
+            <input type="submit">
+        </form>
+    </div>
 
     <!-- <div id="createbug_hook" class="bugbox" style="width: 700px">
         <form id="createbug_form">

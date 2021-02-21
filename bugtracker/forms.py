@@ -37,7 +37,7 @@ class bugCreateForm(forms.Form):
 
 	# org is defined by default
 
-	SubjectMatterExpert = forms.CharField(widget=forms.Select(
+	sme = forms.CharField(label="Subject Matter Expert", widget=forms.Select(
 		choices=[('TODO', 'TODO')],
 		attrs={
 			'class': 'form-control'
