@@ -8,5 +8,5 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initialize(){
-    console.log("You are now on the createbug page")
+    console.log("You are now on the createbug page, This is being printed from the intialize function...")
 }
