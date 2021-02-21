@@ -59,7 +59,13 @@ Progress:
     /    also edit button which redirects to another prepopulated page
     /        I think its better this way because it distinguishes it from the other webapps which is part of the requirements
 
+    Need to finish "edit bug" page 
+        Might actually be better if not done in JS, but rather a simple HTML form
+
     Need to make "create bug" page 
+        Might actually be better if not done in JS, but rather a simple HTML form
+        Can use a simple for loop to loop through users, etc.
+
     Need to total bug list to homescreen
     Need to reroute homescreen to buglist
 
