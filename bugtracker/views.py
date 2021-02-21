@@ -107,9 +107,6 @@ def currentuserid(request):
 	else:
 		return request.user.id # otherwise sends user id
 
-def createbug(request):
-	return render(request, "bugtracker/error.html") # error page for now
-
 def bugdetailspage(request, bug_id):
 	# print("bugdetailspage render: " + str(bug_id)) # This line is called, as expected
 	return render(request, "bugtracker/bugdetailspage.html", {
@@ -129,3 +126,8 @@ def bugdetailedit(request, bug_id):
 	return render(request, "bugtracker/bugeditpage.html", {
 		"bug_id": str(bug_id)
 	}) # error page for now
+
+def createbug(request):
+	#  TODO need to create html page with custom form to submit
+
+	return render(request, "bugtracker/createbug.html") # error page for now
