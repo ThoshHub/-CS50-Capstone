@@ -35,7 +35,7 @@ function display_bug(data, bug_id){
     var bugpost = document.createElement('div');
     bugpost.id = "bug_" + bug_id;
     bugpost.innerHTML = generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org); // Generates the inner HTML
-    bugpost.innerHTML += generateEditButton(bug_id);
+	bugpost.innerHTML += generateEditButton(bug_id);
 
     document.querySelector('#bugdetailspage_info').append(bugpost)
 
@@ -70,11 +70,12 @@ function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_es
 }
 
 function generateEditButton(bug_id){
-    button = "<button>" + "test" + "<button>"
+	button = "<a class=\"btn btn-primary\" style=\"color:white\""
+	button += "href=\"/bugtracker/bugdetailspage/" + bug_id +"/edit\" >" 
+	button += "Edit" 
+	button += "</a>"
 
-    // TODO Add buttons
-
-    return ""; // dummy
+    return button; // dummy
 }
 
 function capitalizeFirstLetter(string) {

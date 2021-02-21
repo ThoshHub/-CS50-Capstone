@@ -1,15 +1,3 @@
-// import React, { Component } from 'react';
-// import 'bugtracker/loader.js'
-// import $ from "jquery"
-
-// async function intialize() {        
-//         const res = await fetch('/bugtracker/buglistmessages'); // fetching the data from api, before the page loaded
-//         const buglist_json = await res.json();
-//         // buglist_json.forEach(element => { console.log(element) });
-//         console.log(buglist_json)
-//         return buglist_json;
-// }
-
 class Header extends React.Component {
     render() {
         return (
@@ -144,16 +132,6 @@ class Buglist extends React.Component {
                         {/* Here the bug.fields.severity var is being passed into the function severityStyleConditional() where it returns a CSS style that is rendered in the style tag in the <span> element */}
                         <div><strong>Severity: </strong> <span style={this.severityStyleConditional(bug.fields.severity)}>{this.toTitleCase(bug.fields.severity)}</span></div>
                         <div><strong>Type: </strong> <span>{this.toTitleCase(bug.fields.type)}</span></div>
-
-                        {/* The action attribute is failing, need to figure out how to route urls between react and django */}
-                        {/* <button class="btn btn-primary" style={detailsStyle} onClick={() => this.returnDetails(bug.pk)}>Details</button>  */}
-                        
-                        {/* TODO left off on trying to send submit from this "form" */}
-                        {/* <form action="/bugtracker/buglistpage" method="post">
-                            <button class="btn btn-primary" id={`bbt-${bug.pk}`} style={detailsStyle} onClick={() => this.submitBug()}>Details</button> 
-                        </form> */}
-                        
-                        {/* TODO make this a link to another page with all th */}
                         <a class="btn btn-primary" style={detailsStyle} href={`/bugtracker/bugdetailspage/${bug.pk}`}>Details</a> 
                     </div>
                 ))}

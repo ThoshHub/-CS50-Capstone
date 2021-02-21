@@ -124,3 +124,8 @@ def bugdetailcontent(request, bug_id):
 
 	# data = "{\"name\":\"John\", \"age\":31, \"city\":\"New York\"}" # Dummy Data for Debugging
 	return JsonResponse(data, safe=False)
+
+def bugdetailedit(request, bug_id):
+	return render(request, "bugtracker/bugeditpage.html", {
+		"bug_id": str(bug_id)
+	}) # error page for now

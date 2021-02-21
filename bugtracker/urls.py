@@ -9,6 +9,7 @@ urlpatterns = [
     path("logout", views.logout_view, name="logout"),
     path("register", views.register, name="register"),
     path("bugdetailspage/<int:bug_id>", views.bugdetailspage, name="bugdetailspage"), # returns page with details of that id
+	path("bugdetailspage/<int:bug_id>/edit", views.bugdetailedit, name="bugdetailedit"), # returns form to edit bug
 
     # API Routes
     path("buglistmessages", views.buglistmessages, name="buglistmessages"), # gives a list of all messages that belong to user's organization
