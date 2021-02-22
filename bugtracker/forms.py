@@ -1,8 +1,8 @@
 from django.forms import ModelForm
 from django import forms
-from .models import bug, BUG_SEVERITY, BUG_TYPES
+from .models import User, bug, BUG_SEVERITY, BUG_TYPES
 
-class bugCreateForm(forms.Form):
+class bugCreateForm(ModelForm):
 	title = forms.CharField(widget=forms.TextInput(
 		attrs = {
 			'class': 'form-control'
@@ -15,7 +15,7 @@ class bugCreateForm(forms.Form):
 		}
 	))
 
-	types = forms.CharField(widget=forms.Select(
+	type = forms.CharField(widget=forms.Select(
 		choices=tuple(list(BUG_SEVERITY.BUG_SEVERITY)),
 		attrs={
 			'class': 'form-control'
@@ -37,12 +37,19 @@ class bugCreateForm(forms.Form):
 
 	# org is defined by default
 
-	sme = forms.CharField(label="Subject Matter Expert", widget=forms.Select(
-		choices=[('TODO', 'TODO')],
+	# sme = forms.CharField(label="Subject Matter Expert", widget=forms.Select(
+	# 	choices=[('TODO', 'TODO')],
+	# 	attrs={
+	# 		'class': 'form-control'
+	# 	}
+	# ))
+
+	sme = forms.ModelChoiceField(label="Subject Matter Expert", widget=forms.Select(
 		attrs={
 			'class': 'form-control'
 		}
-	))
+	), queryset=User.objects.all())
+
 
 	class Meta:
 		model = bug
