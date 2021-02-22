@@ -140,6 +140,9 @@ def createbug(request):
 	# print(str(users)) # print statement
 
 	# return render(request, "bugtracker/createbug.html")
+	bcf = bugCreateForm()
+	# https://stackoverflow.com/questions/8841502/how-to-use-the-request-in-a-modelform-in-django
+	bcf.fields['sme'].queryset = User.objects.filter(org = User.objects.filter(id = request.user.id).values('org')[0]['org'])
 	return render(request, "bugtracker/createbug.html", {
-		"form": bugCreateForm()
+		"form": bcf
 	}) 
