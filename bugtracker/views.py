@@ -133,6 +133,12 @@ def createbug(request):
 		print("A post request was made to createbug def in views.py...")
 		# TODO render the bug create form if debugging, otherwise render the list of bugs page
 
+	# current_user = request.user.id # gives current user id
+	# orgs = User.objects.filter(id = request.user.id).values('org')[0]['org'] # gets the id organization that the user belongs to (request.user.id), then gets the first index of that([0]) and grabs the map of that ('org')
+	# users = User.objects.filter(org = orgs) # gets the users belonging to the org that is passed in
+	# users = User.objects.filter(org = User.objects.filter(id = request.user.id).values('org')[0]['org']) # All logic combined
+	# print(str(users)) # print statement
+
 	# return render(request, "bugtracker/createbug.html")
 	return render(request, "bugtracker/createbug.html", {
 		"form": bugCreateForm()
