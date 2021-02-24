@@ -62,9 +62,9 @@ Progress:
     Need to finish "edit bug" page 
         Might actually be better if not done in JS, but rather a simple HTML form
 
-    Need to make "create bug" page 
-        Might actually be better if not done in JS, but rather a simple HTML form
-        Can use a simple for loop to loop through users, etc.
+    /Need to make "create bug" page 
+    /    Might actually be better if not done in JS, but rather a simple HTML form
+    /    Can use a simple for loop to loop through users, etc.
 
     Need to total bug list to homescreen
     Need to reroute homescreen to buglist
