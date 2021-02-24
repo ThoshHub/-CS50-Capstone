@@ -15,21 +15,21 @@ class User(AbstractUser):
 class BUG_TYPES: # bug types
 	BUG_TYPES = [
 		# (None, ''),
-		('FUNCTIONAL','Functional'),
-		('PERFORMANCE', 'Performance'),
-		('USABILITY','Usability'),
-		('COMPATABILITY','Compatability'),
-		('SECURITY', 'Security'),
-		('OTHER','Other'),
+		('Functional','Functional'),
+		('Performance', 'Performance'),
+		('Usability','Usability'),
+		('Compatability','Compatability'),
+		('Security', 'Security'),
+		('Other','Other'),
 	]
 
 class BUG_SEVERITY: # bug types
 	BUG_SEVERITY = [
 		# (None, ''),
-		('LOW','Low'),
-		('MEDIUM', 'Medium'),
-		('HIGH','High'),
-		('CRITICAL','Critical'),
+		('Low','Low'),
+		('Medium', 'Medium'),
+		('High','High'),
+		('Critical','Critical'),
 	]
 
 class bug(models.Model):

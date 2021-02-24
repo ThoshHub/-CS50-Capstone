@@ -124,26 +124,59 @@ def bugdetailcontent(request, bug_id):
 	return JsonResponse(data, safe=False)
 
 def bugdetailedit(request, bug_id):
+	print("bugdetailedit() Method Has Been Called... ")
+	# I think 
 	return render(request, "bugtracker/bugeditpage.html", {
 		"bug_id": str(bug_id)
-	}) # error page for now
+	})
 
 def createbug(request):
-	if request.method == "POST":
-		print("A post request was made to createbug def in views.py...")
-		# TODO render the bug create form if debugging, otherwise render the list of bugs page
+	# TODO render the bug create form if debugging, otherwise render the list of bugs page
 
+	if request.method == "POST":
+		form = bugCreateForm(request.POST)
+		if form.is_valid():
+			return_title = form.cleaned_data["title"]
+			return_description = form.cleaned_data["description"]
+			return_type = form.cleaned_data["type"]
+			return_severity = form.cleaned_data["severity"]
+			return_estimate = form.cleaned_data["estimate"]
+			return_sme = form.cleaned_data["sme"]
+			return_org = organization.objects.filter(id = getOrg(request))[0] # Get ID of Org that the user belongs to
+			
+			# For debugging
+			log_form = "TITLE: " + str(return_title)
+			log_form += "\nDESCRIPTION: " + str(return_description)
+			log_form += "\nTYPE: " + str(return_type)
+			log_form += "\nSEVERITY: " + str(return_severity)
+			log_form += "\nESTIMATE: " + str(return_estimate)
+			log_form += "\nSME: " + str(return_sme)
+			log_form += "\nORG: " + str(return_org) 
+			print(log_form)	
+
+			# Create bug, and save it
+			newbug = bug(title=return_title, description=return_description, type=return_type, severity=return_severity, estimate=return_estimate, sme=return_sme, org=return_org)
+			newbug.save()
+
+			return render(request, "bugtracker/buglistpage.html") # return buglistpage
+		else:
+			print("An invalid form was submitted...")
+			print("ERRORS: " + str(form.errors))
+			return render(request, "bugtracker/error.html")
+	else: # Present user with a new form
+		users = User.objects.filter(org = getOrg(request)) # gets the users belonging to the org that is passed in
+
+		bcf = bugCreateForm()
+		bcf.fields['sme'].queryset = users
+		return render(request, "bugtracker/createbug.html", {
+			"form": bcf
+		})
+
+def getOrg(request): # Using the 'request' parameter, the organization that the user belongs to will be fetched and returned
 	current_user = request.user # gives current user id
 	current_user_id = current_user.id # get id of current user
 	orgs = User.objects.filter(id = current_user_id).values('org')[0]['org'] # gets the id organization that the user belongs to (request.user.id), then gets the first index of that([0]) and grabs the map of that ('org')
-	users = User.objects.filter(org = orgs) # gets the users belonging to the org that is passed in
-
-	bcf = bugCreateForm()
-	bcf.fields['sme'].queryset = users
-	return render(request, "bugtracker/createbug.html", {
-		"form": bcf
-	})
-
+	return orgs
 	# users = User.objects.filter(org = User.objects.filter(id = request.user.id).values('org')[0]['org']) # All logic combined
 	# https://stackoverflow.com/questions/8841502/how-to-use-the-request-in-a-modelform-in-django
 	# bcf.fields['sme'].queryset = User.objects.filter(org = User.objects.filter(id = request.user.id).values('org')[0]['org'])

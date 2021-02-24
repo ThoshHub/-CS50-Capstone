@@ -15,19 +15,19 @@ class bugCreateForm(ModelForm):
 		}
 	))
 
-	type = forms.CharField(widget=forms.Select(
-		choices=tuple(list(BUG_SEVERITY.BUG_SEVERITY)),
-		attrs={
-			'class': 'form-control'
-		}
-	))
+	# type = forms.CharField(widget=forms.Select(
+	# 	choices=tuple(list(BUG_SEVERITY.BUG_SEVERITY)),
+	# 	attrs={
+	# 		'class': 'form-control'
+	# 	}
+	# ))
 
-	severity = forms.CharField(widget=forms.Select(
-		choices=tuple(list(BUG_TYPES.BUG_TYPES)),
-		attrs={
-			'class': 'form-control'
-		}
-	))
+	# severity = forms.CharField(widget=forms.Select(
+	# 	choices=tuple(list(BUG_TYPES.BUG_TYPES)),
+	# 	attrs={
+	# 		'class': 'form-control'
+	# 	}
+	# ))
 
 	estimate = forms.IntegerField(widget=forms.NumberInput(
 		attrs={
@@ -35,11 +35,8 @@ class bugCreateForm(ModelForm):
 		}
 	))
 
-	# org is defined by default
-
-	# sme = forms.CharField(label="Subject Matter Expert", widget=forms.Select(
-	# 	choices=[('TODO', 'TODO')],
-	# 	attrs={
+	# org = forms.CharField(label="Organization", widget=forms.TextInput( # TODO change 
+	# 	attrs = {
 	# 		'class': 'form-control'
 	# 	}
 	# ))
