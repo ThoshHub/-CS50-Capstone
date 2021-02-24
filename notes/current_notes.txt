@@ -60,7 +60,12 @@ Progress:
     /        I think its better this way because it distinguishes it from the other webapps which is part of the requirements
 
     Need to finish "edit bug" page 
-        Might actually be better if not done in JS, but rather a simple HTML form
+        /Might actually be better if not done in JS, but rather a simple HTML form
+        Pass the form in and see if that work
+            Need to autopopulate fields
+            Might be able to set field value before passing it into render function
+        Need to create if/else 
+        Need to add way to save
 
     /Need to make "create bug" page 
     /    Might actually be better if not done in JS, but rather a simple HTML form

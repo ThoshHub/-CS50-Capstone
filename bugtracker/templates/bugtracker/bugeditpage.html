@@ -6,6 +6,31 @@
 	
 	<h2 id="bugeditpage_id" style="display: none;">{{bug_id}}</h2>
 	 
-    <div id="bugeditpage_info"></div>
+    <div id="createbug_hook" class="bugbox" style="width: 700px">
+        <form id="createbug_form">
+            <label for="bugtitle"><strong>Bug Title: </strong></label>
+            <input class="form-control" id="bugtitle">
+
+            <label for="bugdescription">Bug Description: </label>
+            <textarea class="form-control" id="bugdescription" rows="3"></textarea>
+            <small id="bugdescriptionhelp" class="form-text text-muted">A description of the bug, and how to reproduce the problem.</small>
+
+            <label for="bugtype">Bug Type: </label>
+            <select class="form-control" id="bugtype">
+            </select>
+
+            <label for="bugseverity">Bug Type: </label>
+            <select class="form-control" id="bugseverity">
+            </select>
+
+            <label for="bugestimate">Estimate (hours): </label>
+            <input class="form-control" id="bugestimate" type="number">
+
+            <label for="bugsme">Subject Matter Expert: </label>
+            <select class="form-control" id="bugsme">
+            </select>
+
+        </form>
+    </div>
     
 {% endblock %}
