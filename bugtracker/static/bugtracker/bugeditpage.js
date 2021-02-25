@@ -9,5 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initialize(bug_id){
-    console.log("You are now on the bug edits page")
+	console.log("You are now on the bug edits page")
+	document.getElementById("id_type").classList.add('form-control'); // Add bootstrap class to type
+	document.getElementById("id_severity").classList.add('form-control'); // Add bootstrap class to severity
 }

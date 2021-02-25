@@ -123,16 +123,7 @@ def bugdetailcontent(request, bug_id):
 	# data = "{\"name\":\"John\", \"age\":31, \"city\":\"New York\"}" # Dummy Data for Debugging
 	return JsonResponse(data, safe=False)
 
-def bugdetailedit(request, bug_id):
-	print("bugdetailedit() Method Has Been Called... ")
-	# I think 
-	return render(request, "bugtracker/bugeditpage.html", {
-		"bug_id": str(bug_id)
-	})
-
 def createbug(request):
-	# TODO render the bug create form if debugging, otherwise render the list of bugs page
-
 	if request.method == "POST":
 		form = bugCreateForm(request.POST)
 		if form.is_valid():
@@ -170,6 +161,59 @@ def createbug(request):
 		bcf.fields['sme'].queryset = users
 		return render(request, "bugtracker/createbug.html", {
 			"form": bcf
+		})
+
+def bugdetailedit(request, bug_id):
+	if request.method == "POST":
+		form = bugCreateForm(request.POST)
+		if form.is_valid():
+			return_title = form.cleaned_data["title"]
+			return_description = form.cleaned_data["description"]
+			return_type = form.cleaned_data["type"]
+			return_severity = form.cleaned_data["severity"]
+			return_estimate = form.cleaned_data["estimate"]
+			return_sme = form.cleaned_data["sme"]
+			return_org = organization.objects.filter(id = getOrg(request))[0] # Get ID of Org that the user belongs to
+			
+			# For debugging
+			log_form = "TITLE: " + str(return_title)
+			log_form += "\nDESCRIPTION: " + str(return_description)
+			log_form += "\nTYPE: " + str(return_type)
+			log_form += "\nSEVERITY: " + str(return_severity)
+			log_form += "\nESTIMATE: " + str(return_estimate)
+			log_form += "\nSME: " + str(return_sme)
+			log_form += "\nORG: " + str(return_org) 
+			print(log_form)	
+
+			# Assign edited values to the bug
+			bug_sel = bug.objects.filter(id = bug_id)[0]
+			bug_sel.title = return_title
+			bug_sel.description = return_description
+			bug_sel.type = return_type
+			bug_sel.severity = return_severity
+			bug_sel.estimate = return_estimate
+			bug_sel.sme = return_sme
+			bug_sel.save() # save
+
+			# Render page, which has now been edited
+			return render(request, "bugtracker/bugdetailspage.html", {
+				"bug_id": str(bug_id)
+			})
+	else:
+		users = User.objects.filter(org = getOrg(request)) # gets the users belonging to the org that is passed in
+		bug_sel = bug.objects.filter(id = bug_id)[0] # the bug that is being edited, get the first index of it
+
+		# Create map to prepopulate fields
+		data = {'title': bug_sel.title,
+				'description': bug_sel.description,
+				'type': bug_sel.type,
+				'severity': bug_sel.severity,
+				'estimate': bug_sel.estimate,
+				'sme': bug_sel.sme}
+		bcf = bugCreateForm(data) # pass in map to form to prepopulate fields
+		bcf.fields['sme'].queryset = users # 
+		return render(request, "bugtracker/bugeditpage.html", {
+			"bug_id": str(bug_id), "form": bcf
 		})
 
 def getOrg(request): # Using the 'request' parameter, the organization that the user belongs to will be fetched and returned
