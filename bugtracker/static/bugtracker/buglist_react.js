@@ -8,7 +8,7 @@
 //     }
 // }
 
-class Headers extends React.component {
+class Headers extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +22,14 @@ class Headers extends React.component {
         const url = '/bugtracker/usermessagecount'
         const response = await fetch(url);
         const data = await response.json();
+        console.log(data)
         // TODO this.setstate
+    }
+
+    render() {
+        return (
+            <div>TEST</div>
+        );
     }
 
 }
@@ -162,6 +169,6 @@ class Buglist extends React.Component {
 }
 
 
-ReactDOM.render(<Headers />, document.querySelector('#header'));
+ReactDOM.render(<Headers />, document.querySelector('#headers'));
 ReactDOM.render(<Buglist />, document.querySelector('#bugs'));
 // ReactDOM.render(<Buglist />, document.querySelector('#bugs')); // Second one does not render, but initalize is called twice
