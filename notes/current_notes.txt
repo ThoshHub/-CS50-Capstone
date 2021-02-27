@@ -72,8 +72,19 @@ Progress:
     /    Can use a simple for loop to loop through users, etc.
 
     Need to total bug list to homescreen
+        Need to add attribute to store number of total bugs
+        Need to add fetch to oncreate componnent to grab number
+        Need to add subdiv to return div in react component so it renders
+        OR
+        could create completely new react component and call render function there <-- this is probably the easier way to do it
+        Also need to add total bug list of which the user is the sme of
+        Need to add divs in html page upon which this new component can be rendered
+
     Need to reroute homescreen to buglist
     Need to add "categories" filter at top for easy navigation
+    Need to make a list of pages that the user can get to logged in and not logged in and enforce that
+
+    Need to check current status of project with all requirements
 
 
 .

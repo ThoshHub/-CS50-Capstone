@@ -224,3 +224,11 @@ def getOrg(request): # Using the 'request' parameter, the organization that the 
 	# users = User.objects.filter(org = User.objects.filter(id = request.user.id).values('org')[0]['org']) # All logic combined
 	# https://stackoverflow.com/questions/8841502/how-to-use-the-request-in-a-modelform-in-django
 	# bcf.fields['sme'].queryset = User.objects.filter(org = User.objects.filter(id = request.user.id).values('org')[0]['org'])
+
+def usermessagecount(request): # returns json with count of total bugs assigned to org, and total bugs assigned to user
+	current_user = request.user # gives current user id
+	current_user_id = current_user.id # get id of current user
+	orgs = User.objects.filter(id = current_user_id).values('org')[0]['org']
+	
+	bugs_json = "{\"userbugs\":\"10\", \"orgbugs\":30}" # Dummy JSON for Debugging
+	return JsonResponse(bugs_json, safe=False) # return that json object

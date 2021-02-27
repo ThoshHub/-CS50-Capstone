@@ -1,11 +1,30 @@
-class Header extends React.Component {
-    render() {
-        return (
-            <div>
-                <h2 id="index_header" >List of Bugs:</h2>
-            </div>
-        );
+// class Header extends React.Component {
+//     render() {
+//         return (
+//             <div>
+//                 <h2 id="index_header" >List of Bugs:</h2>
+//             </div>
+//         );
+//     }
+// }
+
+class Headers extends React.component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: true,
+            num_of_proj: 0,
+            num_of_proj_user: 0 
+        };
     }
+
+    async componentDidMount() {
+        const url = '/bugtracker/usermessagecount'
+        const response = await fetch(url);
+        const data = await response.json();
+        // TODO this.setstate
+    }
+
 }
 
 class Buglist extends React.Component {
@@ -125,6 +144,8 @@ class Buglist extends React.Component {
 
         return (
             <div>
+                {/*TODO Need to  insert totals here and or links*/}
+
                 {/* {this.state.raw} */}
                 {this.state.raw.map((bug, i) => (
                     <div key={`bug-num-${i}`} id={`bug-num-${i}`} class="bugbox">
@@ -141,6 +162,6 @@ class Buglist extends React.Component {
 }
 
 
-ReactDOM.render(<Header />, document.querySelector('#header'));
+ReactDOM.render(<Headers />, document.querySelector('#header'));
 ReactDOM.render(<Buglist />, document.querySelector('#bugs'));
 // ReactDOM.render(<Buglist />, document.querySelector('#bugs')); // Second one does not render, but initalize is called twice
