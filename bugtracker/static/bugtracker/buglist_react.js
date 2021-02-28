@@ -39,7 +39,7 @@ class Headers extends React.Component {
             'margin': '10px',
             'padding': '10px',
             'font-size': 'xx-large',
-            'border': '2px solid crimson',
+            'border': '2px solid dodgerblue',
             'border-radius': '15px',
             'width': '30%',
             'text-align': 'center', 
@@ -50,7 +50,7 @@ class Headers extends React.Component {
             'margin': '10px',
             'padding': '10px',
             'font-size': 'xx-large',
-            'border': '2px solid dodgerblue',
+            'border': '2px solid crimson',
             'border-radius': '15px',
             'width': '30%',
             'text-align': 'center', 
@@ -58,8 +58,8 @@ class Headers extends React.Component {
 
         return (
             <div class="list_headers">
-                <div class="list_headers" style={orgbugStyle}>Total Number of Bugs: {this.state.raw.orgbugs} </div>
-                <div class="list_headers" style={userBugStyle}>Bugs Belonging To You: {this.state.raw.userbugs} </div>
+                <div class="list_headers" style={orgbugStyle}>Total Number of Bugs: <strong>{this.state.raw.orgbugs}</strong> </div>
+                <div class="list_headers" style={userBugStyle}>Bugs Belonging To You: <strong>{this.state.raw.userbugs}</strong> </div>
             </div>
         );
     }
