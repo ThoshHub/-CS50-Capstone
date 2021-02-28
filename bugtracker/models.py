@@ -52,6 +52,8 @@ class bug(models.Model):
 	estimate = models.PositiveIntegerField(null=False)
 	sme = models.ForeignKey(User, on_delete=models.CASCADE, related_name= "owner", blank=False, null=False) # sme = subject matter expert
 	org = models.ForeignKey(organization, on_delete=models.CASCADE, related_name="error", blank=False, null=True)
+	active = models.BooleanField(default=True, blank=True) # active = whether the bug is active or not, true means it is active, false means it has been closed
+	# blank determines whether the field will be required in forms. This includes the admin and your custom forms. If blank=True then the field will not be required, whereas if it's False the field cannot be blank.
 
 	def __str__(self): 
 		return f"{self.id}: {self.title}"
