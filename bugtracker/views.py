@@ -229,6 +229,13 @@ def usermessagecount(request): # returns json with count of total bugs assigned 
 	current_user = request.user # gives current user id
 	current_user_id = current_user.id # get id of current user
 	orgs = User.objects.filter(id = current_user_id).values('org')[0]['org']
+	# print(orgs) # gets the id organization that the user belongs to (request.user.id)
 	
-	bugs_json_2 = {'userbugs':10, 'orgbugs':30}  # Dummy JSON for Debugging Founder
+	bugs_org = bug.objects.filter(org = orgs) # list of bugs that belong to that organization
+	# print(bugs_org.count())
+	
+	bugs_user = bug.objects.filter(sme = current_user_id) # list of bugs that belong to user
+	# print(bugs_user)
+	
+	bugs_json_2 = {'userbugs':str(bugs_user.count()), 'orgbugs':str(bugs_org.count())}  # Dummy JSON for Debugging Founder
 	return JsonResponse(bugs_json_2, safe=False) # return that json object
