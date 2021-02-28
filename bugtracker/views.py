@@ -92,7 +92,9 @@ def buglistmessages(request):
 def querybugs(id):
 	org_sel = orgofid(id) # get the organization of the current user
 	org_sel_id = org_sel['org'] # get id of organization
-	orgbugs = bug.objects.filter(org = org_sel_id) # grab a list of all bugs from that org
+	# orgbugs = bug.objects.filter(org = org_sel_id) # grab a list of all bugs from that org
+	orgbugs = bug.objects.filter(org = org_sel_id).filter(active = True) # grab a list of all bugs from that org that are active
+	
 	return orgbugs
 
 # returns id of organization of the user (user id) that is passed in
@@ -231,10 +233,12 @@ def usermessagecount(request): # returns json with count of total bugs assigned 
 	orgs = User.objects.filter(id = current_user_id).values('org')[0]['org']
 	# print(orgs) # gets the id organization that the user belongs to (request.user.id)
 	
-	bugs_org = bug.objects.filter(org = orgs) # list of bugs that belong to that organization
+	# bugs_org = bug.objects.filter(org = orgs) # list of bugs that belong to that organization
+	bugs_org = bug.objects.filter(org = orgs).filter(active = True) # list of bugs that belong to that organization
 	# print(bugs_org.count())
 	
-	bugs_user = bug.objects.filter(sme = current_user_id) # list of bugs that belong to user
+	# bugs_user = bug.objects.filter(sme = current_user_id) # list of bugs that belong to user
+	bugs_user = bug.objects.filter(sme = current_user_id).filter(active = True) # list of bugs that belong to user
 	# print(bugs_user)
 	
 	bugs_json_2 = {'userbugs':str(bugs_user.count()), 'orgbugs':str(bugs_org.count())}  # Dummy JSON for Debugging Founder

@@ -80,7 +80,7 @@ Progress:
    /     Also need to add total bug list of which the user is the sme of
    /     Need to add divs in html page upon which this new component can be rendered
 
-    Need to close bugs
+    /Need to close bugs
         /Need to add "open" or "active" boolean to data model
         /Set it default to "true"
         /add button on details page to "close"
@@ -89,8 +89,8 @@ Progress:
         /    Returns generic json "closed: id_of_closed_item"
         /    page redirects to buglist url
         /        Might be able to do this by returning a render instead of json actually
-        Edit the 'usermessagecount' method in views.py to include a filter only for open=true 
-        Edit the 'buglistmessages' method in views.py to include a filter only for open=true 
+        /Edit the 'usermessagecount' method in views.py to include a filter only for open=true 
+        /Edit the 'buglistmessages' method in views.py to include a filter only for open=true 
 
     Need to reroute homescreen to buglist
     Need to add an actual link to createbug url somewhere (it doesn't exist anywhere atm)
