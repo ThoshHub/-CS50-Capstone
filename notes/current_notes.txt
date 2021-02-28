@@ -92,13 +92,15 @@ Progress:
         /Edit the 'usermessagecount' method in views.py to include a filter only for open=true 
         /Edit the 'buglistmessages' method in views.py to include a filter only for open=true 
 
-    Need to reroute homescreen to buglist
-    Need to add an actual link to createbug url somewhere (it doesn't exist anywhere atm)
+    /Need to reroute homescreen to buglist
+    /Need to add an actual link to createbug url somewhere (it doesn't exist anywhere atm)
+    Need to add alternative url for index if user is not registered
+        probably a page asking the user to log in.
     Need to add "categories" filter at top for easy navigation
         Optional category: finished bugs
     Need to make a list of pages that the user can get to logged in and not logged in and enforce that
 
-    Need to check current status of project with all requirements
+    /Need to check current status of project with all requirements -> checks out
 
 
 .
