@@ -13,8 +13,7 @@ class Headers extends React.Component {
         super(props);
         this.state = {
             loading: true,
-            num_of_proj: 0,
-            num_of_proj_user: 0 
+            raw: null,
         };
     }
 
@@ -22,13 +21,46 @@ class Headers extends React.Component {
         const url = '/bugtracker/usermessagecount'
         const response = await fetch(url);
         const data = await response.json();
-        console.log(data)
-        // TODO this.setstate
+        this.setState({raw: data, loading: false});
+        console.log(this.state.raw)
     }
 
     render() {
+        if(this.state.loading){
+            return <div>Loading...</div>;
+        }
+
+        if(this.state.raw.length == 0){
+            return <div><h1>There are no bugs!</h1></div>
+        }
+
+        let orgbugStyle = {
+            // 'margin-bottom': '5px',
+            'margin': '10px',
+            'padding': '10px',
+            'font-size': 'xx-large',
+            'border': '2px solid crimson',
+            'border-radius': '15px',
+            'width': '30%',
+            'text-align': 'center', 
+        }
+
+        let userBugStyle = {
+            // 'margin-bottom': '5px',
+            'margin': '10px',
+            'padding': '10px',
+            'font-size': 'xx-large',
+            'border': '2px solid dodgerblue',
+            'border-radius': '15px',
+            'width': '30%',
+            'text-align': 'center', 
+        }
+
         return (
-            <div>TEST</div>
+            <div class="list_headers">
+                <div class="list_headers" style={orgbugStyle}>Total Number of Bugs: {this.state.raw.orgbugs} </div>
+                <div class="list_headers" style={userBugStyle}>Bugs Belonging To You: {this.state.raw.userbugs} </div>
+            </div>
         );
     }
 

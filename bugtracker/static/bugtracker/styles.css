@@ -10,3 +10,10 @@
 	margin: 10px;
 }
 
+#list_headers{
+	margin: 20px;
+	padding: 20px;
+	font-size: xx-large;
+	border: 2px solid dodgerblue;
+	border-radius: 15px;
+}
