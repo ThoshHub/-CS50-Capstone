@@ -15,5 +15,6 @@ urlpatterns = [
     # API Routes
     path("buglistmessages", views.buglistmessages, name="buglistmessages"), # gives a list of all messages that belong to user's organization
     path("bugdetailcontent/<int:bug_id>", views.bugdetailcontent, name="bugdetailcontent"), # returns JSON with details of that id
-    path("usermessagecount", views.usermessagecount, name="usermessagecount") # returns json with count of total bugs assigned to org, and total bugs assigned to user
+    path("usermessagecount", views.usermessagecount, name="usermessagecount"), # returns json with count of total bugs assigned to org, and total bugs assigned to user
+    path("completebug/<int:bug_id>", views.completebug, name="completebug") # marks bug with id passed in as complete (sets 'active' = false)
 ]

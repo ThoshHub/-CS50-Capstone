@@ -81,14 +81,21 @@ Progress:
    /     Need to add divs in html page upon which this new component can be rendered
 
     Need to close bugs
-        Need to add "open" or "active" boolean to data model
-        Set it default to "true"
-        add button on details page to "close"
+        /Need to add "open" or "active" boolean to data model
+        /Set it default to "true"
+        /add button on details page to "close"
+        /    Needs to call function that calls api url (passes in the id of thebug)
+        /    The view will close that bug in the database
+        /    Returns generic json "closed: id_of_closed_item"
+        /    page redirects to buglist url
+        /        Might be able to do this by returning a render instead of json actually
         Edit the 'usermessagecount' method in views.py to include a filter only for open=true 
         Edit the 'buglistmessages' method in views.py to include a filter only for open=true 
 
     Need to reroute homescreen to buglist
+    Need to add an actual link to createbug url somewhere (it doesn't exist anywhere atm)
     Need to add "categories" filter at top for easy navigation
+        Optional category: finished bugs
     Need to make a list of pages that the user can get to logged in and not logged in and enforce that
 
     Need to check current status of project with all requirements

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    var bug_id = document.querySelector('#bugdetailspage_id').innerHTML // returns 1 upon load
+    var bug_id = document.querySelector('#bugdetailspage_id').innerHTML; // returns 1 upon load
     initialize(bug_id);
 
 	document.addEventListener('click', event => { //unused as of 20.10.29
@@ -35,28 +35,29 @@ function display_bug(data, bug_id){
     var bugpost = document.createElement('div');
     bugpost.id = "bug_" + bug_id;
     bugpost.innerHTML = generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org); // Generates the inner HTML
-	bugpost.innerHTML += generateEditButton(bug_id);
+    bugpost.innerHTML += generateEditButton(bug_id);
+    bugpost.innerHTML += generateCompleteButton(bug_id);
 
-    document.querySelector('#bugdetailspage_info').append(bugpost)
+    document.querySelector('#bugdetailspage_info').append(bugpost);
 
     // Assign CSS
-    document.getElementById(bugpost.id).className = "bugbox"
+    document.getElementById(bugpost.id).className = "bugbox";
 }
 
 function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_estimate, bug_sme, bug_org){
     // generate html for  
-    let severity_style = "btn btn-success" // default is green
+    let severity_style = "btn btn-success"; // default is green
     if (bug_severity.toUpperCase() == "MEDIUM") {
-        severity_style = "btn btn-warning"
+        severity_style = "btn btn-warning";
     } else  if (bug_severity.toUpperCase() == "HIGH" || bug_severity.toUpperCase() == "CRITICAL"){
-        severity_style = "btn btn-danger"
+        severity_style = "btn btn-danger";
     }
 
-    let estimate_style =  "btn btn-success" // default is green
+    let estimate_style =  "btn btn-success"; // default is green
     if (parseInt(bug_estimate) > 5) {       // over 5 hours is yellow
-        estimate_style = "btn btn-warning"
+        estimate_style = "btn btn-warning";
     } else if (parseInt(bug_estimate) > 10) { // over 10 hours is red
-        estimate_style = "btn btn-danger"
+        estimate_style = "btn btn-danger";
     }
 
     let div = "<h1>" + bug_title +  "</h1><br>";
@@ -70,14 +71,37 @@ function generateBugDiv(bug_id, bug_title, bug_description, bug_severity, bug_es
 }
 
 function generateEditButton(bug_id){
-	button = "<a class=\"btn btn-primary\" style=\"color:white\""
-	button += "href=\"/bugtracker/bugdetailspage/" + bug_id +"/edit\" >" 
-	button += "Edit" 
-	button += "</a>"
+	button = "<a class=\"btn btn-primary\" style=\"color:white\"";
+	button += "href=\"/bugtracker/bugdetailspage/" + bug_id +"/edit\" >" ;
+	button += "Edit";
+	button += "</a>";
 
     return button; // dummy
 }
 
+function generateCompleteButton(bug_id){
+    button = "<button class=\"btn btn-danger\" style=\"margin-left:10px\" ";
+    button += "onclick=completeBug(" + bug_id + ")>";
+    button += "Mark Complete";
+    button += "</button>";
+
+    return button;
+}
+
+function completeBug(bug_id){
+    console.log("completeBug function has been called for ID: " + bug_id);
+    url = '/bugtracker/completebug/' + bug_id.toString();
+    fetch(url).then(function (response) { // different type of fetch
+        response.json().then(function (data) {
+            console.log(data);
+            window.location.href = '/bugtracker' // redirects to index right after
+        });
+    }).catch(function (error) {
+        console.log('Fetch Error:', error);
+    });
+    
+}
+
 function capitalizeFirstLetter(string) {
-	return string.charAt(0).toUpperCase() + string.slice(1);
+	return string.charAt(0).toUpperCase() + string.slice(1)
 }

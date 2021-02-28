@@ -239,3 +239,15 @@ def usermessagecount(request): # returns json with count of total bugs assigned 
 	
 	bugs_json_2 = {'userbugs':str(bugs_user.count()), 'orgbugs':str(bugs_org.count())}  # Dummy JSON for Debugging Founder
 	return JsonResponse(bugs_json_2, safe=False) # return that json object
+
+def completebug(request, bug_id):
+	# print("completebug method called for bug ID: " + str(bug_id))
+	bug_sel = bug.objects.filter(id = bug_id)[0] # grabs bug that has id 
+	print(str(bug_sel))
+	bug_sel.active = False
+	bug_sel.save()
+
+	data = "{\"name\":\"John\", \"age\":31, \"city\":\"New York\"}"  # Dummy Data for Debugging
+	data = {'bugid': bug_id}
+	return JsonResponse(data, safe=False)
+	# return render(request, "bugtracker/buglistpage.html") # does not go to url through button
