@@ -259,4 +259,9 @@ def userbuglistpage(request):
 	return render(request, "bugtracker/userbuglistpage.html")
 
 def userbuglistmessages(request):
-	return 0
+	# Todo get user id and retrieve a list of all bugs assigned to that user AND that are active
+	print("Hit userbuglistmessages...")
+	user_id = request.user.id
+	user_bugs = bug.objects.filter(sme = user_id).filter(active = True)
+	user_bugs_json = json.loads(serializers.serialize("json", user_bugs)) # format that list of bugs and format it into JSON
+	return JsonResponse(user_bugs_json, safe=False) # return that json object
