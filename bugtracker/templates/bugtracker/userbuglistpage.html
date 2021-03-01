@@ -1,0 +1,17 @@
+{% extends "bugtracker/layout.html" %}
+{% load static %}
+
+{% block body %}
+	<!-- <script type="text/babel" src="{% static 'bugtracker/loader.js' %}"></script> -->
+	<script type="text/babel" src="{% static 'bugtracker/userbuglist_react.js' %}"></script>
+	<script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+	
+	<!-- <h2 id="index_header"><span style="color:black;">Welcome!</span></h2> -->
+	
+    <div id="headers"></div>
+	
+	<div id="bugs"></div>
+    
+{% endblock %}

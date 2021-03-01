@@ -98,6 +98,14 @@ Progress:
         /probably a page asking the user to log in.
     Need to add "categories" filter at top for easy navigation
         Optional category: finished bugs
+
+        Need to add a new url in layout ONLY for when user is logged in
+        add url to urls.py
+        add method to views.py
+            have it render a NEW html page that you created
+            attach a new React JS file to this new page
+            test and run it
+
     Need to make a list of pages that the user can get to logged in and not logged in and enforce that
 
     /Need to check current status of project with all requirements -> checks out

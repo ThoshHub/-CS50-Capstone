@@ -77,7 +77,6 @@ def register(request):
 
 # returns an html page that contains list of bugs retrieved from the database
 def buglistpage(request):
-	# Need to grab list of bugs that 
 	return render(request, "bugtracker/buglistpage.html")
 
 # returns a list of bugs retrieved from database in JSON form
@@ -255,3 +254,9 @@ def completebug(request, bug_id):
 	data = {'bugid': bug_id}
 	return JsonResponse(data, safe=False)
 	# return render(request, "bugtracker/buglistpage.html") # does not go to url through button
+
+def userbuglistpage(request):
+	return render(request, "bugtracker/userbuglistpage.html")
+
+def userbuglistmessages(request):
+	return 0
