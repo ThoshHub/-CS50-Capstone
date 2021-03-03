@@ -112,6 +112,9 @@ Progress:
 
     /Need to check current status of project with all requirements -> checks out
 
+    Need to do read.me
+        Start with skeleton of answering requirement questions
+        then pad it out to make it nice/easy to read
 
 .
 .
