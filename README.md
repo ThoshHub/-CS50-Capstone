@@ -1,5 +1,4 @@
-
-##CS50 Capstone: Bug Tracker
+## CS50 Capstone: Bug Tracker
 
 **Why you believe your project satisfies the distinctiveness and complexity requirements, mentioned above.**
 My final capstone project is a bug tracker.
@@ -12,7 +11,7 @@ Bugs have the following details
 * Subject Matter Expert (who is responsible for solvint the bug)
   * They can be one of several types/categories:
   * Functional
-  * Performance
+  * Performance	
   * Usability
   * Compatability
   * Security
@@ -47,14 +46,30 @@ This contains all the python files used by the server.
 	* views.py
 	This file contains all the routes. Each url from the urls.py file calls a method from this file, which returns either a JSON (in the case of an api call)  or renders an html page.
 * /bugtracker/static/bugtracker
-This contains all the Javascript files
+This contains all the Javascript files used in this project
 	* bugdetailspage.js
+	This file is run on the html page 'bugdetailspage.html' and is responsible for querying the server for the contents of a specific bug. The contents that are displayed include all attributes of the bug that are in the mode. In addition, the user can click a button that allows them to edit the bug.
 	* bugeditpage.js
+	This file is run on the html page 'bugeditpage.html' and is responsible for displaying the layout of the edit page.
 	* buglist_react.js
+	This file is run on the html page 'buglistpage.html' and is responsible for querying the server for the list of bugs that the belongs to the organization that the user is part of. It provides buttons for each bug that takes the user to the details page of that specific bug which lists more attributes about the bug. This page is written in react.
 	* createbug.js
+	This file is run on the page 'createbug.html' and provides a form for the user to interact with. The form allows for the creation of new bugs.
 	* userbuglist_react.js
+	This file is run on 'userbuglistpage.html' and is similar to 'buglist_react.js' except for listing all the bugs for that organization/project, it is only lists the bugs for which the user is the "Subject Matter Expert". Like 'buglist_react.js', it also is written using react.
 	* vanilla_template.js
+	This file was used only for debugging.
 * /bugtracker/templates/bugtracker/
+	* bugdegailspage.html
+	* bugeditpage.html
+	* buglistpage.html
+	* createbug.html
+	* error.html
+	* index.html
+	* layout.html
+	* login.html
+	* register.html
+	* userbuglistpage.html
 
 **How to run your application.**
 1. Git clone this repository
