@@ -61,20 +61,31 @@ This contains all the Javascript files used in this project
 	This file was used only for debugging.
 * /bugtracker/templates/bugtracker/
 	* bugdegailspage.html
+	This is the html page that lists the details of a bug, it is runs bugdetailspage.js on load which renders all the components on screen.
 	* bugeditpage.html
+	This is the html page that allows the user to edit bugs.
 	* buglistpage.html
+	This is the html page that lists all the bugs that are assigned to the user's organization.
 	* createbug.html
+	This is the html page that allows the user to create a new bug.
 	* error.html
+	This is the error page that the user is presented with.
 	* index.html
+	This is a default index page that was used for testing, but the user is never actually presented with this page.
 	* layout.html
+	This is an html page from which every other html page inherits, it provides the status bar and links to other pages in the website.
 	* login.html
+	This is the login page.
 	* register.html
+	This is the register page.
 	* userbuglistpage.html
-
+	This html page presents the user with a list of all bugs for which they are the SME (subject matter expert) and are responsible for fixing.
+	
 **How to run your application.**
-1. Git clone this repository
-2. 
+1. Git clone this repository.
+2. Change working directory to this repository.
+3. Run 'python3 manage.py runserver'.
+4. Go to 'http://127.0.0.1:8000/bugtracker/' in your web browser to access the application.
   
 **Any other additional information the staff should know about your project.**
-
-There are no other dependencies.
+This project has no other dependencies.
